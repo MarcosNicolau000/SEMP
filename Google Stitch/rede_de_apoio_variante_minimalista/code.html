@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="mobile_tab" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-variant": "#dae2fd",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#6200a9",
+            "surface-container-high": "#e2e7ff",
+            "tertiary": "#004d33",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary-fixed-dim": "#4edea3",
+            "outline-variant": "#cfc2d6",
+            "on-surface-variant": "#4c4354",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#ffdad6",
+            "surface-dim": "#d2d9f4",
+            "inverse-on-surface": "#eef0ff",
+            "surface-container": "#eaedff",
+            "secondary": "#bb0112",
+            "on-background": "#131b2e",
+            "primary-fixed": "#f0dbff",
+            "on-primary-container": "#e4c5ff",
+            "surface-container-low": "#f2f3ff",
+            "tertiary-container": "#006746",
+            "background": "#faf8ff",
+            "on-secondary-fixed-variant": "#93000b",
+            "error-container": "#ffdad6",
+            "on-surface": "#131b2e",
+            "on-primary": "#ffffff",
+            "on-tertiary-container": "#5beaad",
+            "secondary-fixed-dim": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#e02928",
+            "surface": "#faf8ff",
+            "on-primary-fixed-variant": "#6800b4",
+            "on-tertiary-fixed": "#002113",
+            "primary-fixed-dim": "#ddb8ff",
+            "surface-bright": "#faf8ff",
+            "surface-container-highest": "#dae2fd",
+            "on-secondary-container": "#fffbff",
+            "inverse-surface": "#283044",
+            "surface-tint": "#832ad3",
+            "error": "#ba1a1a",
+            "inverse-primary": "#ddb8ff",
+            "primary-container": "#7e22ce",
+            "on-secondary-fixed": "#410002",
+            "on-primary-fixed": "#2c0051",
+            "outline": "#7e7385"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin": "1.25rem",
+            "space-xl": "2.25rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem"
+          },
+          fontFamily: {
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "numeric-pin": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg-mobile": ["Inter"]
+          },
+          fontSize: {
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "numeric-pin": ["28px", { "lineHeight": "36px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        background-color: #faf8ff;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl border-b border-surface-container-high/60">
+<div class="h-16 px-margin flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-xl bg-primary-fixed flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-[10px] text-primary uppercase tracking-widest font-bold">SEMP</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Rede de Apoio</h1>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<a class="h-9 px-3.5 rounded-full bg-inverse-surface text-inverse-on-surface flex items-center gap-1.5 shadow-sm active:scale-95 transition-transform" data-path="calculadora-disfarcada" href="#">
+<span class="material-symbols-outlined text-[18px]">calculate</span>
+<span class="font-label-md text-label-md font-medium">Disfarçar</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex flex-col relative w-full pt-20 pb-28 bg-surface min-h-screen">
+<div class="flex flex-col w-full px-margin space-y-6">
+<!-- Header amigável e conciso -->
+<div class="pt-1">
+<p class="font-body-md text-on-surface-variant text-[14px] leading-relaxed">
+          Gatilhos discretos e contatos de confiança. Ao acionar o código de socorro, o alerta é enviado em silêncio.
+        </p>
+</div>
+<!-- SEÇÃO 1: CÓDIGOS DE ACESSO -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="font-label-lg text-label-lg text-on-surface font-bold tracking-tight">Códigos da Calculadora</h2>
+<span class="flex items-center gap-1 font-body-sm text-[12px] text-tertiary font-medium">
+<span class="material-symbols-outlined text-[15px]">lock</span>
+            Protegido
+          </span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Código de Entrada Normal -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-surface-container-high/80 shadow-sm flex flex-col justify-between space-y-3">
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="font-label-md text-[13px] font-bold text-on-surface">Entrada Normal</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">
+                Abre o app SEMP normalmente
+              </p>
+</div>
+<div class="bg-surface-container-low rounded-xl px-3 py-2 flex items-center justify-between">
+<input class="w-16 bg-transparent font-numeric-pin text-[20px] tracking-widest text-on-surface text-center focus:outline-none" id="pin-normal" maxlength="4" readonly="" type="password" value="9482"/>
+<button class="text-on-surface-variant hover:text-on-surface p-1" onclick="togglePinVisibility('pin-normal', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Código Silencioso de Pânico -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-secondary/20 shadow-sm flex flex-col justify-between space-y-3 relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-16 h-16 bg-secondary/5 rounded-full pointer-events-none"></div>
+<div class="space-y-1">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<span class="font-label-md text-[13px] font-bold text-secondary">Pânico Silencioso</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">
+                Simula erro e pede socorro
+              </p>
+</div>
+<div class="bg-secondary-fixed/30 rounded-xl px-3 py-2 flex items-center justify-between">
+<input class="w-16 bg-transparent font-numeric-pin text-[20px] tracking-widest text-secondary font-semibold text-center focus:outline-none" id="pin-panico" maxlength="4" readonly="" type="password" value="1904"/>
+<button class="text-secondary hover:text-secondary-container p-1" onclick="togglePinVisibility('pin-panico', this)" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 2: REDE DE CONTATOS -->
+<section class="space-y-3 pt-1">
+<div class="flex items-center justify-between">
+<div class="flex items-baseline gap-2">
+<h2 class="font-label-lg text-label-lg text-on-surface font-bold tracking-tight">Contatos de Emergência</h2>
+<span class="text-xs text-on-surface-variant font-medium">(3)</span>
+</div>
+<button class="text-primary font-label-md text-xs font-semibold flex items-center gap-0.5 hover:underline" onclick="openAddContactModal()" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+            Adicionar
+          </button>
+</div>
+<!-- Master Switch Alertas Automáticos -->
+<div class="bg-primary-fixed/30 rounded-xl px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">sensors</span>
+</div>
+<div>
+<p class="font-label-md text-xs font-semibold text-on-surface">Envio de Localização &amp; Áudio</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Ativado para todos os contatos ativos</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Lista Limpa e Compacta de Contatos -->
+<div class="bg-surface-container-lowest rounded-2xl divide-y divide-surface-container-high/60 border border-surface-container-high/60 shadow-sm overflow-hidden">
+<!-- Contato 1 -->
+<div class="p-3.5 flex items-center justify-between hover:bg-surface-container-low/40 transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-11 h-11 rounded-full overflow-hidden shrink-0 border border-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a warm mature Latina mother with short dark wavy hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4GZu-cgq9KzE5wAMjIB1XBMFjkRxE55JR9WUNQ4npUV2-uiOl_wZaAIZkdW9i7wLp3gDz_4cXvMpMHuWoJ2Yf9apYwqx6ZPSNIDOxQWYDhr_ZLBSxINAwL-gY91QTEXuuurhd3bfl3eecdn-bDhqS1b9qcMbvSbBaOR4CwoXfblnnf-O3ppa8V48OnHVNOCJ_vbJXc5cjgs50zVkY5mpXipKfNiBLvVAszSy4IKkmGsgSi2LXPHCqfA"/>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-sm font-semibold text-on-surface truncate">Maria Clara</span>
+<span class="text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-medium">Mãe</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant truncate">(11) 98765-4321</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<a aria-label="Ligar para Maria Clara" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-primary-fixed/40 transition-colors" href="tel:11987654321">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</a>
+<span class="flex items-center gap-1 text-[11px] font-semibold text-tertiary bg-tertiary-fixed/60 px-2 py-0.5 rounded-full ml-1">
+                Ativo
+              </span>
+</div>
+</div>
+<!-- Contato 2 -->
+<div class="p-3.5 flex items-center justify-between hover:bg-surface-container-low/40 transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-11 h-11 rounded-full overflow-hidden shrink-0 border border-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Warm photographic portrait of a young Brazilian woman in her early 30s" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATjZKub-Rgi1tUp9CLAz4X2KxTRQC-LB5WfzT0iuJEUJS8eYjejfA8mjz13c9ntww2x94vQn8-6HrH8mGnCL35AFcu4RIThDtRAJygI-0NJf6YJaryv6pDsdQgD2BLUci5v_VGkHFiXDkeAB3BqqVV4V0gy22_71f_ox5_SIy4hk8zAC3sFMUnbSQFdvY1pHcUQii0b9es1uSeC7r0504d8koR9Zzqgw0RKOO1lAuNMm6LJxlHOlCTaw"/>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-sm font-semibold text-on-surface truncate">Juliana Santos</span>
+<span class="text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-medium">Irmã</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant truncate">(11) 99123-4567</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<a aria-label="Ligar para Juliana" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-primary-fixed/40 transition-colors" href="tel:11991234567">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</a>
+<span class="flex items-center gap-1 text-[11px] font-semibold text-tertiary bg-tertiary-fixed/60 px-2 py-0.5 rounded-full ml-1">
+                Ativo
+              </span>
+</div>
+</div>
+<!-- Contato 3 -->
+<div class="p-3.5 flex items-center justify-between hover:bg-surface-container-low/40 transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-11 h-11 rounded-full overflow-hidden shrink-0 border border-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of a reliable neighbor woman in her 40s" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOMBwL8KpqS1lBSWT7mm6svS7LoOvZwDupSTuyVHIHkk2DbvanvizQtFLVVztMgylE_aJiUdOKuKBHC2DcVtiXOh6WuFGyiRMU9YzNm87E3laguhRk2OuXRzYYIY-jnXitN4Tkb9hUmyBw-aA44mwTuHzeU-NY2GwSSrHYo-URZvGo8bUuujB8a8qBogFXJiAvZPYl26fq0bKnbc530WLm7c1f3EE1ecDJyiYkzSHV42-eZzNJIWv3Mg"/>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-sm font-semibold text-on-surface truncate">Amanda Duarte</span>
+<span class="text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-medium">Vizinha</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant truncate">(11) 97000-8811</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<a aria-label="Ligar para Amanda" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-primary-fixed/40 transition-colors" href="tel:11970008811">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</a>
+<span class="flex items-center gap-1 text-[11px] font-semibold text-tertiary bg-tertiary-fixed/60 px-2 py-0.5 rounded-full ml-1">
+                Ativo
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Ação Principal -->
+<div class="pt-2 flex flex-col items-center space-y-2">
+<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-label-lg text-sm font-semibold shadow-md active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="save-preferences-btn" onclick="handleBiometricConfirmation()" type="button">
+<span class="material-symbols-outlined text-[20px]">fingerprint</span>
+<span>Salvar com Biometria</span>
+</button>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">lock</span>
+          Criptografia ponta a ponta
+        </span>
+</div>
+</div>
+<!-- MODAL DE ADIÇÃO DE CONTATO -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm hidden items-end justify-center p-0" id="add-contact-modal">
+<div class="w-full max-w-lg bg-surface rounded-t-2xl p-space-lg space-y-4 shadow-xl">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Novo Contato Seguro</h3>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant" onclick="closeAddContactModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="space-y-3">
+<div>
+<label class="font-label-md text-xs text-on-surface">Nome</label>
+<input class="w-full h-11 mt-1 px-3 bg-surface-container-lowest rounded-lg font-body-md text-sm text-on-surface border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ex: Luísa" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-xs text-on-surface">Telefone</label>
+<input class="w-full h-11 mt-1 px-3 bg-surface-container-lowest rounded-lg font-body-md text-sm text-on-surface border border-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary" placeholder="(11) 90000-0000" type="tel"/>
+</div>
+<div>
+<label class="font-label-md text-xs text-on-surface">Relação</label>
+<select class="w-full h-11 mt-1 px-3 bg-surface-container-lowest rounded-lg font-body-md text-sm text-on-surface border border-surface-container-high focus:outline-none">
+<option>Família</option>
+<option>Amiga de Confiança</option>
+<option>Vizinha</option>
+</select>
+</div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 h-11 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-sm" onclick="closeAddContactModal()" type="button">
+            Cancelar
+          </button>
+<button class="flex-1 h-11 rounded-lg bg-primary text-on-primary font-label-md text-sm font-semibold shadow-sm" onclick="confirmAddContact()" type="button">
+            Adicionar
+          </button>
+</div>
+</div>
+</div>
+<!-- TOAST FEEDBACK -->
+<div class="fixed bottom-24 left-1/2 -translate-x-1/2 w-10/12 max-w-sm bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-full shadow-xl flex items-center justify-between gap-2 opacity-0 pointer-events-none transition-opacity duration-300 z-50" id="toast-feedback">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]">check_circle</span>
+<span class="font-body-sm text-xs truncate">Configurações salvas</span>
+</div>
+</div>
+<script>
+      function togglePinVisibility(inputId, btn) {
+        const input = document.getElementById(inputId);
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.textContent = 'visibility';
+        } else {
+          input.type = 'password';
+          icon.textContent = 'visibility_off';
+        }
+      }
+
+      function openAddContactModal() {
+        const modal = document.getElementById('add-contact-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeAddContactModal() {
+        const modal = document.getElementById('add-contact-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      function confirmAddContact() {
+        closeAddContactModal();
+        showToast('Novo contato adicionado!');
+      }
+
+      function handleBiometricConfirmation() {
+        const btn = document.getElementById('save-preferences-btn');
+        const originalText = btn.innerHTML;
+        
+        btn.innerHTML = `
+          <span class="material-symbols-outlined animate-spin text-[20px]">sync</span>
+          <span>Salvando...</span>
+        `;
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          showToast('Preferências confirmadas via Biometria');
+        }, 800);
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById('toast-feedback');
+        const label = toast.querySelector('.font-body-sm');
+        if (label) label.textContent = message;
+        
+        toast.classList.remove('opacity-0', 'pointer-events-none');
+        toast.classList.add('opacity-100');
+
+        setTimeout(() => {
+          toast.classList.add('opacity-0', 'pointer-events-none');
+          toast.classList.remove('opacity-100');
+        }, 2500);
+      }
+    </script>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl border-t border-surface-container-high/60" data-active-classes="text-primary font-bold">
+<div class="h-20 px-space-xs flex items-center justify-around">
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="inicio-sos" href="#">
+<span class="material-symbols-outlined text-[24px]">fmd_bad</span>
+<span class="font-label-sm text-[11px] mt-0.5">Alerta SOS</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="medida-protetiva" href="#">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+<span class="font-label-sm text-[11px] mt-0.5">Medida</span>
+</a>
+<a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] px-space-xs transition-colors text-primary font-bold" data-path="rede-de-apoio" href="#">
+<span class="material-symbols-outlined text-[24px]">contacts</span>
+<span class="font-label-sm text-[11px] mt-0.5">Contatos</span>
+</a>
+<a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] px-space-xs text-on-surface-variant hover:text-on-surface transition-colors" data-path="registro-de-ocorrencias" href="#">
+<span class="material-symbols-outlined text-[24px]">shield_with_heart</span>
+<span class="font-label-sm text-[11px] mt-0.5">Ocorrências</span>
+</a>
+</div>
+</nav>
+</body></html>
