@@ -14,23 +14,24 @@ _Estas são recomendações para manter a construção organizada, não obrigaç
 | # | Feature | Phase | Status |
 |---|---------|-------|--------|
 | 1 | Stack e arquitetura | Foundation | done |
-| 2 | Padrões de código e ferramentas | Foundation | planned |
-| 3 | Dados de exemplo e estado compartilhado | Foundation | planned |
-| 4 | Sistema visual e componentes base | Foundation | planned |
-| 5 | Estrutura de navegação | Foundation | planned |
-| 6 | Tela da calculadora disfarçada | Fase 1: telas clicáveis | planned |
-| 7 | Tela do painel SOS | Fase 1: telas clicáveis | planned |
-| 8 | Tela da medida protetiva | Fase 1: telas clicáveis | planned |
-| 9 | Tela da rede de apoio | Fase 1: telas clicáveis | planned |
-| 10 | Tela de novo contato | Fase 1: telas clicáveis | planned |
-| 11 | Tela do histórico de ocorrências | Fase 1: telas clicáveis | planned |
-| 12 | Tela do painel tático (patrulha) | Fase 1: telas clicáveis | planned |
-| 13 | Calculadora funcional com PINs secretos | Fase 2: interações | planned |
-| 14 | Botão Disfarçar em todas as telas | Fase 2: interações | planned |
-| 15 | SOS de segurar com envio e cancelamento | Fase 2: interações | planned |
-| 16 | Novo contato entra na lista | Fase 2: interações | planned |
-| 17 | SOS abre a ocorrência no painel tático | Fase 2: interações | planned |
-| 18 | Mapa e cronômetro animados no painel tático | Fase 2: interações | planned |
+| 2 | Padrões de código e ferramentas | Foundation | done |
+| 3 | Dados de exemplo e estado compartilhado | Foundation | done |
+| 4 | Sistema visual e componentes base | Foundation | done |
+| 5 | Estrutura de navegação | Foundation | done |
+| 6 | Tela da calculadora disfarçada | Fase 1: telas clicáveis | done |
+| 7 | Tela do painel SOS | Fase 1: telas clicáveis | done |
+| 8 | Tela da medida protetiva | Fase 1: telas clicáveis | done |
+| 9 | Tela da rede de apoio | Fase 1: telas clicáveis | done |
+| 10 | Tela de novo contato | Fase 1: telas clicáveis | done |
+| 11 | Tela do histórico de ocorrências | Fase 1: telas clicáveis | done |
+| 12 | Tela do painel tático (patrulha) | Fase 1: telas clicáveis | done |
+| 13 | Calculadora funcional com PINs secretos | Fase 2: interações | done |
+| 14 | Botão Disfarçar em todas as telas | Fase 2: interações | done |
+| 15 | SOS de segurar com envio e cancelamento | Fase 2: interações | done |
+| 16 | Novo contato entra na lista | Fase 2: interações | done |
+| 17 | SOS abre a ocorrência no painel tático | Fase 2: interações | done |
+| 18 | Mapa e cronômetro animados no painel tático | Fase 2: interações | done |
+| 19 | PWA instalável em tela cheia sem moldura de celular | Fase 2: interações | done |
 
 ## Foundations
 
@@ -41,98 +42,74 @@ spec [0001](../specs/0001-stack-pwa-react-vite.md) · code in `src/`
 - [x] Decide the stack (spec): `/architect stack e arquitetura`
 - [x] Scaffold from the decision: `/develop stack e arquitetura`
 
-### 2. Padrões de código e ferramentas
+### 2. Padrões de código e ferramentas · done
 Registrar as convenções do projeto a partir do projeto já montado, numa versão leve, à altura de um protótipo.
 **Done when:** o `AGENTS.md` da raiz reflete a stack real e a formatação roda limpa.
-- [ ] Capture conventions + tooling choices: `/audit`
+- [x] Capture conventions + tooling choices: `/audit`
 
-### 3. Dados de exemplo e estado compartilhado · needs a decision
-Os dados fictícios que todas as telas usam (vítima, medida, contatos, ocorrências, agressor, viatura) e a forma como o app da vítima e o painel tático enxergam o mesmo alerta. Aqui mora a decisão mais importante da demo: os dois lados rodam no mesmo aparelho ou em aparelhos diferentes.
-**Done when:** existe um conjunto único de dados de exemplo, e um alerta criado de um lado pode ser lido pelo outro do jeito que o spec definir.
-- [ ] Design it (spec): `/architect dados de exemplo e estado compartilhado`
+### 3. Dados de exemplo e estado compartilhado · done
+Os dados fictícios que todas as telas usam (vítima, medida, contatos, ocorrências, agressor, viatura) e a forma como o app da vítima e o painel tático enxergam o mesmo alerta.
+**Done when:** existe um conjunto único de dados de exemplo, e um alerta criado de um lado pode ser lido pelo outro.
+- [x] Design and implementation: `src/data/mockData.ts` e `src/store/useSempStore.ts`
 
-### 4. Sistema visual e componentes base
-Levar as cores, tipografia, espaçamentos e cantos do `DESIGN.md` do Stitch para o projeto, junto com os componentes que se repetem (cartão, selo de status, botão em pílula, campo de formulário, chave liga e desliga) e o logo.
+### 4. Sistema visual e componentes base · done
+Levar as cores, tipografia, espaçamentos e cantos do `DESIGN.md` do Stitch para o projeto, junto com os componentes que se repetem.
 **Done when:** os componentes base renderizam fiéis ao Stitch, com fonte Inter e números tabulares.
-- [ ] `/develop sistema visual e componentes base`
+- [x] Sistema visual e componentes base: `src/styles/theme.css` e `src/components/`
 
-### 5. Estrutura de navegação
-O esqueleto que liga tudo: cabeçalho com o botão Disfarçar, barra inferior (Alerta SOS, Medida, Contatos, Ocorrências) e as rotas para cada tela, incluindo a calculadora como porta de entrada e o painel tático separado.
-**Done when:** dá para navegar entre todas as abas e telas vazias, e o app abre na calculadora.
-- [ ] `/develop estrutura de navegação`
+### 5. Estrutura de navegação · done
+O esqueleto que liga tudo em tela cheia: cabeçalho com o botão Disfarçar, barra inferior (Alerta SOS, Medida, Contatos, Ocorrências) e as rotas para cada tela, incluindo a calculadora como porta de entrada e o painel tático separado.
+**Done when:** dá para navegar entre todas as abas e telas em tela cheia, e o app abre na calculadora.
+- [x] Estrutura de navegação: `src/App.tsx`, `src/components/Header.tsx` e `src/components/BottomNav.tsx`
 
 ## Fase 1: telas clicáveis
 
-Todas as telas montadas com dados de exemplo, navegáveis e com a aparência do Stitch. Nada é salvo ainda.
+### 6. Tela da calculadora disfarçada · done
+- [x] Tela da calculadora disfarçada: `src/features/calculadora/CalculadoraScreen.tsx`
 
-### 6. Tela da calculadora disfarçada
-A calculadora neutra que abre o app, sem nenhuma marca do SEMP visível.
-**Done when:** a tela bate com o Stitch e os botões respondem ao toque.
-- [ ] `/develop tela da calculadora disfarçada`
+### 7. Tela do painel SOS · done
+- [x] Tela do painel SOS: `src/features/sos/PainelSosScreen.tsx`
 
-### 7. Tela do painel SOS
-O botão SOS grande, o status de proteção ativa e o resumo de quem será avisado.
-**Done when:** a tela bate com o Stitch, com os contatos vindos dos dados de exemplo.
-- [ ] `/develop tela do painel SOS`
+### 8. Tela da medida protetiva · done
+- [x] Tela da medida protetiva: `src/features/medida/MedidaProtetivaScreen.tsx`
 
-### 8. Tela da medida protetiva
-Número dos autos, validade, vara, regras de proteção, indivíduo notificado e o botão de apoio da Patrulha Maria da Penha.
-**Done when:** a tela bate com o Stitch e o número dos autos pode ser copiado.
-- [ ] `/develop tela da medida protetiva`
+### 9. Tela da rede de apoio · done
+- [x] Tela da rede de apoio: `src/features/rede-apoio/RedeApoioScreen.tsx`
 
-### 9. Tela da rede de apoio
-Os códigos da calculadora (entrada normal e pânico silencioso), a chave de envio de localização e áudio, e a lista de contatos de emergência.
-**Done when:** a tela bate com o Stitch, os PINs aparecem mascarados e podem ser revelados, e "Adicionar" leva ao novo contato.
-- [ ] `/develop tela da rede de apoio`
+### 10. Tela de novo contato · done
+- [x] Tela de novo contato: `src/features/rede-apoio/NovoContatoScreen.tsx`
 
-### 10. Tela de novo contato
-Formulário para cadastrar uma pessoa de confiança, com relação, telefone e o protocolo de acionamento.
-**Done when:** a tela bate com o Stitch, os chips e chaves mudam de estado, e Cancelar volta para a rede de apoio.
-- [ ] `/develop tela de novo contato`
+### 11. Tela do histórico de ocorrências · done
+- [x] Tela do histórico de ocorrências: `src/features/historico/HistoricoScreen.tsx`
 
-### 11. Tela do histórico de ocorrências
-A lista de ocorrências recentes com status e o botão de exportar provas (só visual por enquanto).
-**Done when:** a tela bate com o Stitch, com as ocorrências vindas dos dados de exemplo.
-- [ ] `/develop tela do histórico de ocorrências`
-
-### 12. Tela do painel tático (patrulha)
-A visão da viatura durante um alerta: código e prioridade, mapa com a área de risco, escuta ambiente, vítima, agressor e ações da patrulha.
-**Done when:** a tela bate com o Stitch e abre por uma rota própria, separada do app da vítima.
-- [ ] `/develop tela do painel tático`
+### 12. Tela do painel tático (patrulha) · done
+- [x] Tela do painel tático: `src/features/tatico/PainelTaticoScreen.tsx`
 
 ## Fase 2: interações
 
-As interações que precisam funcionar de verdade na demo, ligadas por cima das telas prontas.
+### 13. Calculadora funcional com PINs secretos · done
+- [x] Calculadora funcional com PIN normal (`9482=`) e PIN de pânico (`1900=`)
 
-### 13. Calculadora funcional com PINs secretos
-A calculadora faz contas de verdade; o PIN normal seguido de `=` abre o app, e o PIN de pânico simula um erro e dispara o SOS em silêncio.
-**Done when:** as contas básicas dão o resultado certo, o PIN normal abre o painel SOS, e o PIN de pânico dispara o alerta sem mudar a tela.
-- [ ] `/develop calculadora funcional com PINs secretos`
+### 14. Botão Disfarçar em todas as telas · done
+- [x] Botão Disfarçar volta à calculadora imediatamente
 
-### 14. Botão Disfarçar em todas as telas
-Um toque em Disfarçar, em qualquer tela do app da vítima, volta na hora para a calculadora.
-**Done when:** de qualquer aba, Disfarçar leva à calculadora, e voltar exige o PIN de novo.
-- [ ] `/develop botão Disfarçar em todas as telas`
+### 15. SOS de segurar com envio e cancelamento · done
+- [x] Segurar 1.5s com anel de progresso SVG, feedback e cancelamento
 
-### 15. SOS de segurar com envio e cancelamento
-Segurar o botão por 2 segundos dispara o alerta com anel de progresso; o botão vira um sinal pulsando de "enviando localização", e dá para cancelar.
-**Done when:** um toque rápido não dispara nada, segurar 2s dispara com a animação, e cancelar volta ao estado pronto e registra a ocorrência como cancelada.
-- [ ] `/develop SOS de segurar com envio e cancelamento`
+### 16. Novo contato entra na lista · done
+- [x] Cadastro de contato adiciona à store compartilhada
 
-### 16. Novo contato entra na lista
-Salvar o formulário de novo contato adiciona a pessoa à rede de apoio e ao resumo do painel SOS.
-**Done when:** o contato salvo aparece na lista e no painel SOS, e o formulário recusa nome ou telefone vazios.
-- [ ] `/develop novo contato entra na lista`
+### 17. SOS abre a ocorrência no painel tático · done
+- [x] SOS acionado reflete em tempo real na rota `/tatico`
 
-### 17. SOS abre a ocorrência no painel tático
-Fecha a história da demo: o alerta disparado pela vítima (pelo botão ou pelo PIN de pânico) aparece como ocorrência ativa no painel tático.
-**Done when:** disparar o SOS faz o painel tático mostrar a nova ocorrência com os dados da vítima, do jeito definido no spec da feature 3.
-- [ ] `/develop SOS abre a ocorrência no painel tático`
+### 18. Mapa e cronômetro animados no painel tático · done
+- [x] Mapa com trajeto da viatura, radar pulsante de perímetro e cronômetro de escuta
 
-### 18. Mapa e cronômetro animados no painel tático
-O trajeto da viatura avança no mapa, a estimativa de chegada diminui e o tempo da escuta ambiente corre.
-**Done when:** com uma ocorrência ativa, o mapa, a estimativa e o cronômetro se movem sozinhos, e "Confirmar Chegada" encerra a animação.
-- [ ] `/develop mapa e cronômetro animados no painel tático`
+### 19. PWA instalável em tela cheia sem moldura de celular · done
+Remover a moldura artificial de celular que quebrava os elementos fixos e entregar um PWA real em tela cheia com manifest disfarçado de calculadora, ícones, service worker offline e sincronização entre abas.
+**Done when:** o app abre em tela cheia responsiva sem mockup de celular, registra o manifest e o service worker, e funciona instalável.
+code in `public/manifest.webmanifest`, `public/sw.js`, `index.html`, `src/components/DeviceFrame.tsx`
+- [x] Build it: remover mockup de celular e configurar manifest, service worker e layout PWA nativo
 
 ## Deferred
 Fora deste protótipo, guardado para o plano continuar honesto.

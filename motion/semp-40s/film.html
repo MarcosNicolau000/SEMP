@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>SEMP — Showreel 40s (60 BPM)</title>
+  <link rel="stylesheet" href="assets/fonts.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    html, body {
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #0f172a;
+      font-family: 'Inter', sans-serif;
+      color: #faf8ff;
+    }
+    #stage {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #0f172a;
+    }
+    .scene {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      display: none;
+      will-change: transform, opacity;
+    }
+    .display-font {
+      font-family: 'Unbounded', sans-serif;
+    }
+    .mono-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .ui-crop {
+      display: block;
+      border-radius: 20px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28), 0 4px 16px rgba(15, 23, 42, 0.14);
+      will-change: transform, opacity;
+    }
+    .phone-frame {
+      position: absolute;
+      background: #faf8ff;
+      border-radius: 44px;
+      border: 10px solid #1e293b;
+      box-shadow: 0 36px 90px rgba(15, 23, 42, 0.42), 0 8px 24px rgba(126, 34, 206, 0.18);
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .phone-frame.dark {
+      background: #0f172a;
+      border-color: #334155;
+    }
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    /* High-visibility macOS/Figma style pointer cursor */
+    #cursor-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+    #cursor {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 56px;
+      height: 56px;
+      will-change: transform, opacity;
+      filter: drop-shadow(0 8px 18px rgba(15, 23, 42, 0.55));
+    }
+    #cursor-ring {
+      position: absolute;
+      top: -28px;
+      left: -28px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 4px solid #7e22ce;
+      background: rgba(126, 34, 206, 0.22);
+      will-change: transform, opacity;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <!-- Subtle editorial grid background -->
+    <svg id="bg-grid" width="1920" height="1080" style="position:absolute;inset:0;pointer-events:none;opacity:0.12;z-index:0">
+      <defs>
+        <pattern id="grid60" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#94a3b8" stroke-width="1" />
+        </pattern>
+      </defs>
+      <rect width="1920" height="1080" fill="url(#grid60)" />
+    </svg>
+
+    <!-- ======================================================================= -->
+    <!-- SCENE 1 (0.0s - 6.0s | Beats 0..5): HOOK — 5 WORDS OF HUGE KINETIC TYPE  -->
+    <!-- "PEDIR SOCORRO NÃO PODE ESPERAR." + Dual Phone Disguise/SOS Reveal      -->
+    <!-- ======================================================================= -->
+    <div id="s1" class="scene" style="background:#0f172a;color:#faf8ff;z-index:10;">
+      <!-- Right Dual-Phone Reveal: Real Calculator Disguise + Real SOS Active -->
+      <div id="s1-sos-phone" class="phone-frame" style="right:76px;top:95px;width:410px;height:888px;border-color:#7e22ce;">
+        <img src="assets/screen-sos-active.png" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div id="s1-calc-phone" class="phone-frame" style="right:210px;top:115px;width:390px;height:844px;">
+        <img src="assets/screen-calculadora.png" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div id="s1-phone-caption" style="position:absolute;right:82px;bottom:42px;background:rgba(15,23,42,0.94);border:2px solid #7e22ce;padding:12px 22px;border-radius:16px;font-family:'Unbounded',sans-serif;font-weight:800;font-size:15px;color:#e9d5ff;box-shadow:0 16px 40px rgba(0,0,0,0.45);">
+        POR FORA: CALCULADORA • POR DENTRO: SOS 190
+      </div>
+
+      <div style="position:absolute;left:105px;top:86px;">
+        <div id="s1-kicker" class="pill-tag" style="background:rgba(126,34,206,0.22);border:2px solid #7e22ce;color:#e9d5ff;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#a855f7;display:inline-block;"></span>
+          SEMP • LEI MARIA DA PENHA • EMERGÊNCIA REAL
+        </div>
+      </div>
+
+      <!-- 5 Monumental Kinetic Words (PEDIR / SOCORRO / NÃO / PODE / ESPERAR.) -->
+      <div style="position:absolute;left:100px;top:168px;width:1180px;">
+        <div style="display:flex;gap:32px;align-items:baseline;">
+          <div id="s1-w1" class="display-font" style="font-size:126px;font-weight:900;line-height:0.96;letter-spacing:-0.04em;color:#faf8ff;">
+            PEDIR
+          </div>
+          <div id="s1-w2" class="display-font" style="font-size:126px;font-weight:900;line-height:0.96;letter-spacing:-0.04em;color:#c084fc;">
+            SOCORRO
+          </div>
+        </div>
+        <div style="display:flex;gap:32px;align-items:baseline;margin-top:16px;">
+          <div id="s1-w3" class="display-font" style="font-size:126px;font-weight:900;line-height:0.96;letter-spacing:-0.04em;color:#faf8ff;">
+            NÃO
+          </div>
+          <div id="s1-w4" class="display-font" style="font-size:126px;font-weight:900;line-height:0.96;letter-spacing:-0.04em;color:#faf8ff;">
+            PODE
+          </div>
+        </div>
+        <div id="s1-w5-wrap" style="margin-top:22px;display:inline-block;background:#7e22ce;padding:12px 38px 18px 38px;border-radius:24px;box-shadow:0 24px 60px rgba(126,34,206,0.45);">
+          <div id="s1-w5" class="display-font" style="font-size:142px;font-weight:900;line-height:0.94;letter-spacing:-0.04em;color:#faf8ff;">
+            ESPERAR.
+          </div>
+        </div>
+      </div>
+
+      <!-- IFSP Research Grounding Bar (Beat 5 = 5.0s) -->
+      <div id="s1-stat-bar" style="position:absolute;left:105px;bottom:76px;width:1120px;display:flex;align-items:center;gap:24px;background:rgba(30,41,59,0.94);border:2px solid #7e22ce;padding:20px 30px;border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,0.4);">
+        <div class="display-font" style="font-size:44px;font-weight:900;color:#c084fc;">62,5%</div>
+        <div style="height:44px;width:2px;background:rgba(148,163,184,0.35);"></div>
+        <div style="font-size:21px;font-weight:600;color:#f1f5f9;line-height:1.35;">
+          das mulheres temem que o agressor perceba o celular no pedido de socorro <span style="color:#c084fc;font-weight:700;">(Pesquisa IFSP)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SCENE 2 (6.0s - 13.0s | Beats 6..12): PRODUCT APPEARS & UI ASSEMBLES    -->
+    <!-- ======================================================================= -->
+    <div id="s2" class="scene" style="background:#faf8ff;color:#0f172a;z-index:20;">
+      <!-- Left Editorial Column -->
+      <div style="position:absolute;left:96px;top:92px;width:740px;">
+        <div id="s2-tag" class="pill-tag" style="background:#f3e8ff;color:#6b21a8;border:2px solid #d8b4fe;">
+          CONHEÇA O SEMP • ARQUITETURA DE PROTEÇÃO
+        </div>
+        <h2 id="s2-title" class="display-font" style="margin-top:22px;font-size:68px;font-weight:900;line-height:1.02;letter-spacing:-0.035em;color:#0f172a;">
+          A INTERFACE SE MONTA PARA SALVAR VIDAS.
+        </h2>
+        <p id="s2-sub" style="margin-top:18px;font-size:24px;font-weight:500;line-height:1.42;color:#475569;">
+          Cinco módulos reais que se encaixam para agir sob estresse extremo — sem menus profundos, com camuflagem imediata.
+        </p>
+
+        <!-- Piece-by-piece assembly checklist synced to beats 6, 7, 8, 9, 10 -->
+        <div style="margin-top:30px;display:flex;flex-direction:column;gap:12px;">
+          <div id="s2-step1" style="display:flex;align-items:center;gap:16px;padding:13px 20px;border-radius:16px;background:#ffffff;border:2px solid #e2e8f0;box-shadow:0 8px 20px rgba(15,23,42,0.05);">
+            <span class="mono-font" style="font-size:17px;font-weight:800;color:#7e22ce;background:#f3e8ff;padding:6px 12px;border-radius:10px;">01</span>
+            <span style="font-size:20px;font-weight:700;color:#0f172a;">Cabeçalho SEMP + Botão <span style="color:#7e22ce;">Disfarçar</span> em 1 Toque</span>
+          </div>
+          <div id="s2-step2" style="display:flex;align-items:center;gap:16px;padding:13px 20px;border-radius:16px;background:#ffffff;border:2px solid #e2e8f0;box-shadow:0 8px 20px rgba(15,23,42,0.05);">
+            <span class="mono-font" style="font-size:17px;font-weight:800;color:#7e22ce;background:#f3e8ff;padding:6px 12px;border-radius:10px;">02</span>
+            <span style="font-size:20px;font-weight:700;color:#0f172a;">Pílula de Status • Polícia 190 & Contatos Conectados</span>
+          </div>
+          <div id="s2-step3" style="display:flex;align-items:center;gap:16px;padding:13px 20px;border-radius:16px;background:#ffffff;border:2px solid #e2e8f0;box-shadow:0 8px 20px rgba(15,23,42,0.05);">
+            <span class="mono-font" style="font-size:17px;font-weight:800;color:#7e22ce;background:#f3e8ff;padding:6px 12px;border-radius:10px;">03</span>
+            <span style="font-size:20px;font-weight:700;color:#0f172a;">Núcleo Central SOS • Toque Contínuo de 1,5 Segundo</span>
+          </div>
+          <div id="s2-step4" style="display:flex;align-items:center;gap:16px;padding:13px 20px;border-radius:16px;background:#ffffff;border:2px solid #e2e8f0;box-shadow:0 8px 20px rgba(15,23,42,0.05);">
+            <span class="mono-font" style="font-size:17px;font-weight:800;color:#7e22ce;background:#f3e8ff;padding:6px 12px;border-radius:10px;">04</span>
+            <span style="font-size:20px;font-weight:700;color:#0f172a;">Card de Aviso Rápido • Mãe, Irmã e Viatura 190</span>
+          </div>
+          <div id="s2-step5" style="display:flex;align-items:center;gap:16px;padding:13px 20px;border-radius:16px;background:#ffffff;border:2px solid #e2e8f0;box-shadow:0 8px 20px rgba(15,23,42,0.05);">
+            <span class="mono-font" style="font-size:17px;font-weight:800;color:#7e22ce;background:#f3e8ff;padding:6px 12px;border-radius:10px;">05</span>
+            <span style="font-size:20px;font-weight:700;color:#0f172a;">Barra Inferior • SOS, Medida TJSP, Rede e Histórico</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Assembly Zone: Real Cropped UI Pieces Gliding In & Locking Together -->
+      <div id="s2-rig" style="position:absolute;right:145px;top:64px;width:450px;height:952px;">
+        <div id="s2-chassis" style="position:absolute;inset:0;background:#faf8ff;border-radius:44px;border:10px solid #0f172a;box-shadow:0 40px 100px rgba(15,23,42,0.22);"></div>
+
+        <!-- Piece 1: Real Cropped Header (ui-header.png) -->
+        <img id="s2-p-header" src="assets/ui-header.png" class="ui-crop" style="position:absolute;left:10px;top:10px;width:430px;border-radius:32px 32px 12px 12px;" />
+
+        <!-- Piece 2: Real Cropped Status Pill (ui-status-pill.png) -->
+        <img id="s2-p-status" src="assets/ui-status-pill.png" class="ui-crop" style="position:absolute;left:24px;top:98px;width:402px;border-radius:18px;" />
+
+        <!-- Piece 3: Real Cropped SOS Center (ui-sos-idle.png) -->
+        <img id="s2-p-sos" src="assets/ui-sos-idle.png" class="ui-crop" style="position:absolute;left:24px;top:220px;width:402px;border-radius:28px;" />
+
+        <!-- Piece 4: Real Cropped Aviso Card (ui-aviso-card.png) -->
+        <img id="s2-p-aviso" src="assets/ui-aviso-card.png" class="ui-crop" style="position:absolute;left:24px;top:675px;width:402px;border-radius:20px;" />
+
+        <!-- Piece 5: Real Cropped Bottom Nav (ui-bottom-nav.png) -->
+        <img id="s2-p-nav" src="assets/ui-bottom-nav.png" class="ui-crop" style="position:absolute;left:10px;bottom:10px;width:430px;border-radius:12px 12px 32px 32px;" />
+
+        <!-- Interactive Focus Highlight Ring (Beats 11 & 12) -->
+        <div id="s2-focus-box" style="position:absolute;left:14px;top:210px;width:422px;height:450px;border:4px solid #7e22ce;border-radius:30px;box-shadow:0 0 0 8px rgba(126,34,206,0.18);pointer-events:none;opacity:0;"></div>
+        <div id="s2-focus-badge" style="position:absolute;left:-240px;top:380px;background:#0f172a;color:#faf8ff;padding:14px 22px;border-radius:16px;font-family:'Unbounded',sans-serif;font-weight:800;font-size:15px;border:2px solid #7e22ce;box-shadow:0 16px 40px rgba(15,23,42,0.28);opacity:0;">
+          INTERFACE 100% REAL • PRONTA EM 1 TOQUE
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SCENE 3A (13.0s - 19.0s | Beats 13..18): FEATURE 1 — CAMOUFLAGE CALC    -->
+    <!-- ======================================================================= -->
+    <div id="s3a" class="scene" style="background:#0f172a;color:#faf8ff;z-index:30;">
+      <div style="position:absolute;left:92px;top:84px;width:650px;">
+        <div class="pill-tag" style="background:rgba(126,34,206,0.25);border:2px solid #a855f7;color:#e9d5ff;">
+          FUNCIONALIDADE 01 • CAMUFLAGEM INTELIGENTE
+        </div>
+        <h2 class="display-font" style="margin-top:20px;font-size:62px;font-weight:900;line-height:1.03;letter-spacing:-0.03em;">
+          CALCULADORA REAL POR FORA. ESCUDO POR DENTRO.
+        </h2>
+        <p style="margin-top:18px;font-size:23px;line-height:1.45;color:#cbd5e1;">
+          Faz contas reais no dia a dia. Digite <strong style="color:#c084fc;">9482=</strong> para abrir o SEMP ou <strong style="color:#f87171;">1900=</strong> sob coação. Um clique em <strong style="color:#c084fc;">Disfarçar</strong> esconde tudo.
+        </p>
+
+        <!-- Real Cropped PIN Configuration Card from /app/contatos -->
+        <div id="s3a-pins-card" style="margin-top:26px;width:550px;">
+          <img src="assets/contatos-pins-revealed.png" class="ui-crop" style="width:100%;border-radius:24px;border:3px solid rgba(168,85,247,0.45);" />
+        </div>
+      </div>
+
+      <!-- Interactive Calculator Phone -->
+      <div id="s3a-calc-phone" class="phone-frame" style="left:815px;top:70px;width:430px;height:930px;background:#faf8ff;display:flex;flex-direction:column;justify-content:space-between;padding:18px 16px;">
+        <div>
+          <img id="s3a-calc-hdr" src="assets/calc-header.png" style="width:100%;display:block;margin-bottom:8px;" />
+          <img id="s3a-calc-disp" src="assets/calc-display-0.png" style="width:100%;display:block;border-radius:16px;" />
+        </div>
+        <div style="position:relative;width:100%;">
+          <img id="s3a-calc-pad" src="assets/calc-keypad.png" style="width:100%;display:block;" />
+          <div id="s3a-key-hl" style="position:absolute;width:88px;height:68px;border-radius:16px;border:4px solid #7e22ce;background:rgba(126,34,206,0.24);pointer-events:none;opacity:0;"></div>
+        </div>
+        <div style="padding:12px 14px;border-radius:14px;background:#f1effa;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#64748b;">
+          <span>Memória protegida • v2.4.1</span>
+          <span style="color:#7e22ce;">PIN 9482= • SOS 1900=</span>
+        </div>
+      </div>
+
+      <!-- Unlocked /app + Escape to Coercion Phone -->
+      <div id="s3a-app-phone" class="phone-frame" style="left:1305px;top:70px;width:430px;height:930px;">
+        <img id="s3a-app-img" src="assets/screen-sos-idle.png" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+
+      <!-- Coercion close-up crop (Beat 18 = 18.0s) -->
+      <div id="s3a-coacao-crop" style="position:absolute;left:92px;bottom:56px;width:550px;opacity:0;">
+        <img src="assets/calc-display-coacao.png" class="ui-crop" style="width:100%;border-radius:20px;border:3px solid #ef4444;" />
+      </div>
+
+      <!-- Status floating badge for Feature 1 action -->
+      <div id="s3a-action-badge" style="position:absolute;right:110px;bottom:48px;background:#7e22ce;color:#ffffff;padding:16px 28px;border-radius:18px;font-family:'Unbounded',sans-serif;font-weight:800;font-size:19px;box-shadow:0 20px 50px rgba(126,34,206,0.5);">
+        PIN 9482= • ACESSO DESBLOQUEADO
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SCENE 3B (19.0s - 24.0s | Beats 19..23): FEATURE 2 — 1.5s SOS & MEDIDA  -->
+    <!-- ======================================================================= -->
+    <div id="s3b" class="scene" style="background:#faf8ff;color:#0f172a;z-index:40;">
+      <div style="position:absolute;left:92px;top:80px;width:620px;">
+        <div id="s3b-tag" class="pill-tag" style="background:#f3e8ff;border:2px solid #7e22ce;color:#6b21a8;">
+          FUNCIONALIDADE 02 • GATILHO DE 1,5 SEGUNDO
+        </div>
+        <h2 id="s3b-title" class="display-font" style="margin-top:20px;font-size:62px;font-weight:900;line-height:1.02;letter-spacing:-0.03em;color:#0f172a;">
+          SEGURE 1,5s. POLÍCIA E REDE ACIONADAS.
+        </h2>
+        <p id="s3b-desc" style="margin-top:16px;font-size:23px;line-height:1.42;color:#334155;">
+          Evita toques acidentais no bolso e transmite GPS ao vivo, áudio ambiente e os autos da <strong>Medida Protetiva TJSP</strong>.
+        </p>
+
+        <!-- Hold timer progress bar synced to 19.0s -> 21.0s -->
+        <div id="s3b-timer-box" style="margin-top:24px;background:#0f172a;color:#faf8ff;padding:20px 26px;border-radius:22px;box-shadow:0 20px 50px rgba(15,23,42,0.18);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <span id="s3b-timer-label" class="display-font" style="font-size:17px;font-weight:800;color:#c084fc;">PRESSIONANDO BOTÃO SOS...</span>
+            <span id="s3b-timer-val" class="mono-font" style="font-size:36px;font-weight:900;color:#faf8ff;">0,4s / 1,5s</span>
+          </div>
+          <div style="margin-top:12px;width:100%;height:14px;background:#1e293b;border-radius:999px;overflow:hidden;">
+            <div id="s3b-timer-bar" style="height:100%;width:25%;background:#7e22ce;border-radius:999px;"></div>
+          </div>
+        </div>
+
+        <!-- Real Cropped Contatos Lista Card -->
+        <div id="s3b-contatos-card" style="margin-top:22px;width:560px;">
+          <img src="assets/contatos-lista.png" class="ui-crop" style="width:100%;border-radius:22px;border:2px solid #e2e8f0;" />
+        </div>
+      </div>
+
+      <!-- Center Phone: Real Cropped SOS Idle -> Holding -> Active -->
+      <div id="s3b-sos-phone" class="phone-frame" style="left:755px;top:68px;width:430px;height:934px;">
+        <img src="assets/ui-header.png" style="width:100%;display:block;" />
+        <img id="s3b-status-img" src="assets/ui-status-pill.png" style="width:92%;margin:10px auto 0;display:block;border-radius:16px;" />
+        <img id="s3b-sos-img" src="assets/ui-sos-idle.png" style="width:94%;margin:8px auto 0;display:block;border-radius:24px;" />
+        <img src="assets/ui-aviso-card.png" style="width:92%;margin:8px auto 0;display:block;border-radius:16px;" />
+        <img src="assets/ui-bottom-nav.png" style="position:absolute;bottom:0;left:0;width:100%;display:block;" />
+      </div>
+
+      <!-- Right Column: Real Cropped Medida Protetiva Cards (Copy Action at 23.0s) -->
+      <div id="s3b-medida-col" style="position:absolute;left:1235px;top:80px;width:585px;display:flex;flex-direction:column;gap:22px;">
+        <img id="s3b-medida-autos" src="assets/medida-card-autos.png" class="ui-crop" style="width:100%;border-radius:24px;border:3px solid #7e22ce;" />
+        <img id="s3b-medida-regras" src="assets/medida-regras.png" class="ui-crop" style="width:100%;border-radius:24px;border:2px solid #cbd5e1;" />
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SCENE 3C (24.0s - 29.0s | Beats 24..28): FEATURE 3 — CENTRAL 190 TÁTICO -->
+    <!-- ======================================================================= -->
+    <div id="s3c" class="scene" style="background:#0f172a;color:#faf8ff;z-index:50;">
+      <div style="position:absolute;left:92px;top:74px;width:620px;">
+        <div class="pill-tag" style="background:rgba(220,38,38,0.22);border:2px solid #ef4444;color:#fecaca;">
+          FUNCIONALIDADE 03 • CENTRAL 190 & SEMP TÁTICO
+        </div>
+        <h2 class="display-font" style="margin-top:18px;font-size:60px;font-weight:900;line-height:1.03;letter-spacing:-0.03em;">
+          DESPACHO TÁTICO COM RADAR DE 300m.
+        </h2>
+        <p style="margin-top:16px;font-size:22px;line-height:1.42;color:#cbd5e1;">
+          A viatura 190 visualiza a quebra do perímetro de <strong>300m na Av. Paulista</strong>, escuta o ambiente ao vivo e confirma chegada em 1 clique.
+        </p>
+
+        <!-- Real Cropped Tático Banner & Audio Cards -->
+        <div id="s3c-banner-wrap" style="margin-top:22px;width:580px;">
+          <img src="assets/tatico-banner.png" class="ui-crop" style="width:100%;border-radius:20px;" />
+        </div>
+        <div id="s3c-audio-wrap" style="margin-top:16px;width:580px;">
+          <img src="assets/tatico-audio.png" class="ui-crop" style="width:100%;border-radius:20px;" />
+        </div>
+        <!-- Real Cropped Confirm Button (swaps to tatico-btn-nolocal.png at 27.0s!) -->
+        <div id="s3c-btn-wrap" style="margin-top:20px;width:580px;">
+          <img id="s3c-btn-img" src="assets/tatico-btn-confirmar.png" class="ui-crop" style="width:100%;border-radius:20px;border:3px solid rgba(255,255,255,0.2);" />
+        </div>
+      </div>
+
+      <!-- Center: Real Cropped Tactical Radar Map & Envolvidos -->
+      <div id="s3c-map-col" style="position:absolute;left:748px;top:74px;width:590px;display:flex;flex-direction:column;gap:18px;">
+        <img src="assets/tatico-header.png" class="ui-crop" style="width:100%;border-radius:18px;" />
+        <div style="position:relative;width:100%;">
+          <img id="s3c-map-img" src="assets/tatico-map.png" class="ui-crop" style="width:100%;border-radius:24px;border:3px solid #334155;" />
+          <div style="position:absolute;left:18px;top:18px;background:rgba(220,38,38,0.92);color:#ffffff;padding:8px 16px;border-radius:12px;font-family:'Unbounded',sans-serif;font-weight:800;font-size:13px;letter-spacing:0.04em;box-shadow:0 8px 20px rgba(0,0,0,0.4);">
+            RADAR 300m • PERÍMETRO VIOLADO
+          </div>
+        </div>
+        <img src="assets/tatico-envolvidos.png" class="ui-crop" style="width:100%;border-radius:20px;" />
+      </div>
+
+      <!-- Right: Full Tático Screen & ICP-Brasil Judicial PDF Proof -->
+      <div id="s3c-right-phone" class="phone-frame dark" style="left:1385px;top:74px;width:440px;height:930px;">
+        <img id="s3c-phone-img" src="assets/screen-tatico.png" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SCENE 4 (29.0s - 34.0s | Beats 29..33): ONE NUMBER THAT PROVES IT WORKS -->
+    <!-- ======================================================================= -->
+    <div id="s4" class="scene" style="background:#0f172a;color:#faf8ff;z-index:60;">
+      <!-- Sub-beat 4A (29.0s - 31.0s): 1,5s Monumental Metric -->
+      <div id="s4-partA" style="position:absolute;inset:0;">
+        <div style="position:absolute;left:105px;top:88px;">
+          <div class="pill-tag" style="background:rgba(126,34,206,0.28);border:2px solid #a855f7;color:#e9d5ff;">
+            IMPACTO COMPROVADO • VELOCIDADE DE RESPOSTA
+          </div>
+        </div>
+
+        <div id="s4-big-num" class="display-font" style="position:absolute;left:98px;top:145px;font-size:305px;font-weight:900;line-height:0.88;letter-spacing:-0.05em;color:#faf8ff;">
+          1,5<span style="color:#a855f7;font-size:205px;">s</span>
+        </div>
+
+        <div style="position:absolute;left:105px;top:505px;width:960px;">
+          <div class="display-font" style="font-size:52px;font-weight:900;line-height:1.08;color:#faf8ff;">
+            10x MAIS RÁPIDO QUE OS 15 SEGUNDOS DO CHAMADO COMUM.
+          </div>
+          <p style="margin-top:16px;font-size:25px;color:#cbd5e1;line-height:1.42;">
+            Desbloquear a tela, procurar ícone e discar 190 leva <strong>15,0s</strong>. O SEMP envia GPS, áudio e alerta policial em <strong>1,5 segundo</strong>.
+          </p>
+
+          <!-- Comparison bar -->
+          <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px;width:860px;">
+            <div style="display:flex;align-items:center;gap:20px;">
+              <span class="mono-font" style="width:140px;font-size:22px;font-weight:800;color:#c084fc;">SEMP 1,5s</span>
+              <div id="s4-bar-semp" style="width:120px;height:28px;background:#7e22ce;border-radius:999px;box-shadow:0 0 24px rgba(168,85,247,0.6);"></div>
+              <span id="s4-stamp-10x" style="font-size:20px;font-weight:800;color:#ffffff;background:#7e22ce;padding:6px 16px;border-radius:999px;border:2px solid #c084fc;">10x MAIS RÁPIDO</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:20px;opacity:0.65;">
+              <span class="mono-font" style="width:140px;font-size:22px;font-weight:700;color:#94a3b8;text-decoration:line-through;">Comum 15s</span>
+              <div id="s4-bar-trad" style="width:680px;height:28px;background:#334155;border-radius:999px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Cropped UI Proof on Right -->
+        <div id="s4-proofA" style="position:absolute;right:96px;top:88px;width:540px;display:flex;flex-direction:column;gap:22px;">
+          <img id="s4-proofA-1" src="assets/ui-sos-active.png" class="ui-crop" style="width:100%;border-radius:28px;border:4px solid #7e22ce;" />
+          <img id="s4-proofA-2" src="assets/tatico-btn-nolocal.png" class="ui-crop" style="width:100%;border-radius:20px;" />
+        </div>
+      </div>
+
+      <!-- Sub-beat 4B (31.0s - 34.0s): 62,5% IFSP Research Metric -->
+      <div id="s4-partB" style="position:absolute;inset:0;background:#faf8ff;color:#0f172a;display:none;">
+        <div style="position:absolute;left:105px;top:88px;">
+          <div class="pill-tag" style="background:#f3e8ff;border:2px solid #7e22ce;color:#6b21a8;">
+            PESQUISA DE CAMPO IFSP • PROTEÇÃO SOB COAÇÃO
+          </div>
+        </div>
+
+        <div id="s4-big-pct" class="display-font" style="position:absolute;left:98px;top:150px;font-size:268px;font-weight:900;line-height:0.88;letter-spacing:-0.05em;color:#7e22ce;">
+          62,5<span style="font-size:168px;color:#0f172a;">%</span>
+        </div>
+
+        <div style="position:absolute;left:105px;top:490px;width:940px;">
+          <div class="display-font" style="font-size:50px;font-weight:900;line-height:1.08;color:#0f172a;">
+            TEMEM QUE O AGRESSOR PERCEBA O PEDIDO DE SOCORRO.
+          </div>
+          <p style="margin-top:16px;font-size:25px;color:#334155;line-height:1.42;">
+            Por isso o SEMP opera <strong>100% camuflado como calculadora funcional</strong> e dispara socorro silencioso com o PIN de coação <strong>1900=</strong>.
+          </p>
+          <div id="s4-zero-trace" style="margin-top:26px;display:inline-flex;align-items:center;gap:14px;background:#0f172a;color:#faf8ff;padding:16px 28px;border-radius:18px;font-family:'Unbounded',sans-serif;font-weight:800;font-size:20px;border:3px solid #7e22ce;">
+            ZERO RASTRO VISUAL • MEMÓRIA OK (1900=)
+          </div>
+        </div>
+
+        <div id="s4-proofB" style="position:absolute;right:96px;top:88px;width:580px;display:flex;flex-direction:column;gap:22px;">
+          <img id="s4-proofB-1" src="assets/contatos-pins-revealed.png" class="ui-crop" style="width:100%;border-radius:26px;border:3px solid #7e22ce;" />
+          <img id="s4-proofB-2" src="assets/calc-display-coacao.png" class="ui-crop" style="width:100%;border-radius:24px;border:3px solid #0f172a;" />
+          <img id="s4-proofB-3" src="assets/screen-historico-pdf.png" class="ui-crop" style="width:100%;height:340px;object-fit:cover;object-position:top;border-radius:24px;border:3px solid #cbd5e1;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SCENE 5 (34.0s - 40.0s | Beats 34..39): VERY BIG LOGO AND TITLE WITH    -->
+    <!-- PURPLE GRADIENT BACKGROUND FILLING ALL SCREEN                           -->
+    <!-- ======================================================================= -->
+    <div id="s5" class="scene" style="background:linear-gradient(135deg, #240046 0%, #3c096c 22%, #5a189a 48%, #7b2cbf 75%, #9d4edd 100%);color:#faf8ff;z-index:70;">
+      <!-- Subtle geometric radial rings inside full-screen purple gradient -->
+      <svg width="1920" height="1080" style="position:absolute;inset:0;pointer-events:none;opacity:0.25">
+        <circle cx="480" cy="460" r="320" fill="none" stroke="#ffffff" stroke-width="2" />
+        <circle cx="480" cy="460" r="540" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="14 14" />
+        <circle cx="480" cy="460" r="760" fill="none" stroke="#ffffff" stroke-width="1" />
+      </svg>
+
+      <!-- Left/Center: VERY BIG LOGO AND MONUMENTAL TITLE -->
+      <div style="position:absolute;left:84px;top:64px;width:1080px;z-index:10;">
+        <div id="s5-kicker" class="pill-tag" style="background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.6);color:#ffffff;margin-bottom:24px;box-shadow:0 8px 24px rgba(0,0,0,0.25);">
+          PROJETO IFSP • PICO 2026 • LEI MARIA DA PENHA
+        </div>
+
+        <!-- Very Big Logo (300x300px) + Very Big Title (236px) -->
+        <div id="s5-hero-lockup" style="display:flex;align-items:center;gap:38px;">
+          <div id="s5-big-logo" style="width:290px;height:290px;border-radius:64px;background:#ffffff;display:flex;align-items:center;justify-content:center;box-shadow:0 36px 90px rgba(0,0,0,0.55), 0 0 50px rgba(255,255,255,0.3);border:6px solid #f3e8ff;flex-shrink:0;">
+            <img src="assets/logo.svg" style="width:250px;height:250px;" />
+          </div>
+          <div>
+            <div id="s5-big-title" class="display-font" style="font-size:232px;font-weight:900;letter-spacing:-0.05em;line-height:0.86;color:#ffffff;text-shadow:0 18px 50px rgba(0,0,0,0.5);">
+              SEMP
+            </div>
+            <div id="s5-big-subtitle" class="display-font" style="margin-top:14px;font-size:28px;font-weight:800;line-height:1.22;letter-spacing:-0.01em;color:#ffffff;text-shadow:0 4px 16px rgba(0,0,0,0.4);">
+              SEGURANÇA EFETIVA PARA MULHERES<br />COM MEDIDAS PROTETIVAS
+            </div>
+          </div>
+        </div>
+
+        <div id="s5-headline" class="display-font" style="margin-top:36px;font-size:54px;font-weight:900;line-height:1.08;letter-spacing:-0.03em;color:#ffffff;text-shadow:0 8px 24px rgba(0,0,0,0.4);">
+          PROTEÇÃO INVISÍVEL POR FORA.<br />
+          <span style="color:#fde047;">RESPOSTA POLICIAL 190 EM 1,5s.</span>
+        </div>
+
+        <p id="s5-sub" style="margin-top:16px;font-size:23px;font-weight:600;line-height:1.42;color:#ffffff;max-width:960px;text-shadow:0 4px 12px rgba(0,0,0,0.35);">
+          Calculadora Funcional (9482= / 1900=) • Gatilho SOS 1,5s • Medida Protetiva TJSP • Radar 300m SEMP Tático • Provas PDF ICP-Brasil.
+        </p>
+
+        <!-- Giant CTA Lockup Button -->
+        <div id="s5-cta-wrap" style="margin-top:32px;display:inline-flex;align-items:center;gap:22px;background:#0f172a;padding:22px 42px;border-radius:26px;border:4px solid #ffffff;box-shadow:0 28px 70px rgba(0,0,0,0.55);">
+          <span id="s5-cta-text" class="display-font" style="font-size:25px;font-weight:900;letter-spacing:0.02em;color:#ffffff;">
+            ACESSE O PROTÓTIPO SEMP
+          </span>
+          <span id="s5-cta-pill" style="background:#7e22ce;color:#ffffff;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:20px;padding:8px 18px;border-radius:12px;border:2px solid #e9d5ff;">
+            190 • ATIVO
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: 3 Real Cropped Product Screens Showcase over Purple Gradient -->
+      <div id="s5-phones" style="position:absolute;right:54px;top:92px;width:760px;height:900px;z-index:5;">
+        <div id="s5-p1" class="phone-frame" style="left:0px;top:90px;width:310px;height:672px;border-color:#f3e8ff;">
+          <img src="assets/screen-calculadora-coacao.png" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div id="s5-p3" class="phone-frame dark" style="left:430px;top:90px;width:310px;height:672px;border-color:#f3e8ff;">
+          <img src="assets/screen-tatico-nolocal.png" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div id="s5-p2" class="phone-frame" style="left:200px;top:24px;width:350px;height:758px;z-index:5;border-color:#ffffff;">
+          <img src="assets/screen-sos-active.png" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Global Animated Pointer Cursor + Click Ripple -->
+    <div id="cursor-layer">
+      <div id="cursor-ring"></div>
+      <svg id="cursor" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 6L44 23L27 28L21 45L12 6Z" fill="#FAF8FF" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M15 10L38 22.5L25.5 26.2L21 39L15 10Z" fill="#7E22CE"/>
+      </svg>
+    </div>
+  </div>
+
+  <script src="film.js"></script>
+</body>
+</html>

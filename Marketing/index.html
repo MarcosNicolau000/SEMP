@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth snap-y snap-mandatory">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEMP — Segurança Efetiva para Mulheres com Medidas Protetivas</title>
+
+  <!-- Fonts: Inter & Material Symbols Outlined -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Tailwind CSS configured with Google Stitch SEMP Palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#faf8ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f2f3ff",
+            "surface-container": "#eaedff",
+            "surface-container-high": "#e2e7ff",
+            "surface-container-highest": "#dae2fd",
+            "on-surface": "#131b2e",
+            "on-surface-variant": "#4c4354",
+            "inverse-surface": "#131b2e",
+            "inverse-on-surface": "#eef0ff",
+            "outline": "#7e7385",
+            "outline-variant": "#cfc2d6",
+            "primary": "#6200a9",
+            "primary-container": "#7e22ce",
+            "primary-fixed": "#f0dbff",
+            "primary-fixed-dim": "#ddb8ff",
+            "on-primary": "#ffffff",
+            "on-primary-fixed": "#2c0051",
+            "secondary": "#bb0112",
+            "secondary-container": "#e02928",
+            "secondary-fixed": "#ffdad6",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed": "#410002",
+            "tertiary": "#004d33",
+            "tertiary-container": "#006746",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#002113"
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "-apple-system", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .tnum {
+      font-variant-numeric: tabular-nums;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+    .icon-filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.92); opacity: 0.7; }
+      75% { transform: scale(1.25); opacity: 0; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+    .animate-sos-ring {
+      animation: pulse-ring 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    @keyframes sound-wave {
+      0%, 100% { transform: scaleY(0.35); }
+      50% { transform: scaleY(1); }
+    }
+    .wave-1 { animation: sound-wave 0.65s ease-in-out infinite; }
+    .wave-2 { animation: sound-wave 0.5s ease-in-out infinite 0.15s; }
+    .wave-3 { animation: sound-wave 0.8s ease-in-out infinite 0.25s; }
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-primary text-on-primary selection:bg-white selection:text-primary">
+
+  <!-- ===================================================================== -->
+  <!-- MINIMAL FLOATING TOP NAV                                              -->
+  <!-- ===================================================================== -->
+  <header class="fixed top-6 left-0 right-0 z-50 px-6 sm:px-12 pointer-events-none">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Brand Pill -->
+      <a href="#slide-1" class="pointer-events-auto inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md text-on-surface shadow-sm transition-transform hover:scale-105">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-7 h-7 shrink-0">
+          <rect width="100" height="100" rx="24" fill="#6200a9" />
+          <path d="M50 24 L72 33 V49 C72 63 62 74 50 80 C38 74 28 63 28 49 V33 Z" fill="#ffffff" />
+          <path d="M50 42 C45 35 37 38 37 45 C37 52 50 63 50 63 C50 63 63 52 63 45 C63 38 55 35 50 42 Z" fill="#6200a9" />
+        </svg>
+        <span class="font-extrabold tracking-tight text-sm">SEMP</span>
+      </a>
+
+      <!-- Slide Navigation + Demo CTA -->
+      <div class="pointer-events-auto flex items-center gap-2 bg-white/95 backdrop-blur-md p-1.5 rounded-full shadow-sm">
+        <nav class="hidden lg:flex items-center gap-1 px-2 text-xs font-semibold text-on-surface-variant">
+          <a href="#slide-1" class="px-3 py-1.5 rounded-full hover:bg-surface-container hover:text-primary transition-colors">1. Capa</a>
+          <a href="#slide-2" class="px-3 py-1.5 rounded-full hover:bg-surface-container hover:text-primary transition-colors">2. Problema</a>
+          <a href="#slide-3" class="px-3 py-1.5 rounded-full hover:bg-surface-container hover:text-primary transition-colors">3. Pesquisa</a>
+          <a href="#slide-4" class="px-3 py-1.5 rounded-full hover:bg-surface-container hover:text-primary transition-colors">4. Solução</a>
+          <a href="#slide-5" class="px-3 py-1.5 rounded-full hover:bg-surface-container hover:text-primary transition-colors">5. Simulador</a>
+          <a href="#slide-6" class="px-3 py-1.5 rounded-full hover:bg-surface-container hover:text-primary transition-colors">6. Patrulha</a>
+          <a href="#slide-7" class="px-3 py-1.5 rounded-full hover:bg-surface-container hover:text-primary transition-colors">7. Validação</a>
+        </nav>
+        <a href="#slide-5" class="px-4 py-1.5 rounded-full bg-primary text-on-primary text-xs font-bold hover:bg-primary-container transition-colors">
+          Abrir Demonstração
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- FLOATING SLIDE CONTROLLER (BOTTOM RIGHT - FOR FAIR PRESENTATION)      -->
+  <!-- ===================================================================== -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-1.5 bg-on-surface/90 backdrop-blur-md text-white px-3 py-2 rounded-full shadow-lg text-xs font-semibold tnum">
+    <button type="button" onclick="changeSlide(-1)" aria-label="Slide anterior" class="w-7 h-7 rounded-full hover:bg-white/15 flex items-center justify-center transition-colors">
+      <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+    </button>
+    <span id="slide-counter" class="px-2">01 / 07</span>
+    <button type="button" onclick="changeSlide(1)" aria-label="Próximo slide" class="w-7 h-7 rounded-full hover:bg-white/15 flex items-center justify-center transition-colors">
+      <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+    </button>
+    <div class="w-px h-4 bg-white/20 mx-1"></div>
+    <button type="button" onclick="toggleFullScreen()" title="Tela Cheia (Tecla F)" class="w-7 h-7 rounded-full hover:bg-white/15 flex items-center justify-center transition-colors">
+      <span class="material-symbols-outlined text-[16px]">fullscreen</span>
+    </button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE 01: CAPA / TEMA CENTRAL (FUNDO ROXO MARCA #6200A9)              -->
+  <!-- ===================================================================== -->
+  <section id="slide-1" data-slide="1" class="snap-start min-h-screen w-full bg-primary text-on-primary flex items-center justify-center px-6 sm:px-12 py-24">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+      <div class="lg:col-span-8 space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 text-primary-fixed text-xs font-bold uppercase tracking-widest">
+          <span>IFSP • Ciência da Computação • PICO 4º Semestre</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.04]">
+          Segurança Efetiva para Mulheres com Medidas Protetivas.
+        </h1>
+
+        <p class="text-lg sm:text-2xl text-primary-fixed font-medium max-w-2xl leading-relaxed">
+          Engenharia de Software aplicada a um acionamento de emergência <strong class="text-white">rápido, discreto e camuflado</strong>.
+        </p>
+
+        <div class="pt-4 flex flex-wrap items-center gap-4">
+          <a href="#slide-5" class="inline-flex items-center gap-2.5 h-14 px-8 rounded-full bg-white text-primary font-extrabold text-base shadow-lg hover:scale-[1.02] transition-transform">
+            <span>Abrir Demonstração</span>
+            <span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+          </a>
+          <a href="#slide-2" class="inline-flex items-center gap-2 h-14 px-7 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-base transition-colors">
+            <span>Iniciar Slides</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Brand Emblem -->
+      <div class="lg:col-span-4 flex justify-center lg:justify-end">
+        <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-[56px] bg-primary-container border border-white/15 shadow-2xl flex flex-col items-center justify-center p-8 text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-36 h-36">
+            <path d="M50 14 L82 27 V50 C82 70 68 85 50 92 C32 85 18 70 18 50 V27 Z" fill="#ffffff" fill-opacity="0.2" />
+            <path d="M50 22 L75 32 V49 C75 65 64 77 50 84 C36 77 25 65 25 49 V32 Z" fill="#ffffff" />
+            <path d="M50 41 C44 33 35 37 35 45 C35 53 50 66 50 66 C50 66 65 53 65 45 C65 37 56 33 50 41 Z" fill="#6200a9" />
+          </svg>
+          <span class="mt-4 text-2xl font-black tracking-tight text-white">SEMP</span>
+          <span class="text-xs font-semibold text-primary-fixed uppercase tracking-widest mt-1">Lei 11.340/2006</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE 02: PROBLEMA & LACUNA TECNOLÓGICA (FUNDO LILÁS #F0DBFF)         -->
+  <!-- ===================================================================== -->
+  <section id="slide-2" data-slide="2" class="snap-start min-h-screen w-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center px-6 sm:px-12 py-24">
+    <div class="max-w-6xl mx-auto w-full space-y-12">
+
+      <div class="max-w-4xl space-y-4">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-primary">01 • Problema & Contexto</span>
+        <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.06]">
+          O documento legal, por si só, não impede a aproximação do agressor.
+        </h2>
+        <p class="text-lg sm:text-xl text-on-surface-variant max-w-3xl">
+          Apps tradicionais de "botão de pânico" exigem desbloquear a tela, abrir menus e digitar mensagens — etapas inviáveis sob estresse agudo e coação.
+        </p>
+      </div>
+
+      <!-- 3 Clean Fact Cards from Overleaf -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 tnum">
+        <div class="bg-white rounded-3xl p-8 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-5xl sm:text-6xl font-black text-secondary tracking-tight">1.437</span>
+            <p class="mt-4 text-lg font-bold text-on-surface">
+              Casos de feminicídio registrados no Brasil em 2022 (+6,1% em relação ao ano anterior).
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-semibold text-outline">Fonte: Fórum Brasileiro de Segurança Pública (2023)</span>
+        </div>
+
+        <div class="bg-white rounded-3xl p-8 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-5xl sm:text-6xl font-black text-primary tracking-tight">87,5%</span>
+            <p class="mt-4 text-lg font-bold text-on-surface">
+              Das mulheres pesquisadas não conhecem como a Medida Protetiva funciona na prática (50% parcial + 37,5% total).
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-semibold text-outline">Fonte: Pesquisa de Campo Autoral (IFSP)</span>
+        </div>
+
+        <div class="bg-white rounded-3xl p-8 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-5xl sm:text-6xl font-black text-on-surface tracking-tight">IHC</span>
+            <p class="mt-4 text-lg font-bold text-on-surface">
+              Barreiras motoras e cognitivas impedem pedidos de socorro complexos durante uma agressão.
+            </p>
+          </div>
+          <span class="mt-6 text-xs font-semibold text-outline">Abordagem: Design Thinking & Latência Mínima</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE 03: DESCOBERTAS DA PESQUISA (FUNDO ESCURO #131B2E)              -->
+  <!-- ===================================================================== -->
+  <section id="slide-3" data-slide="3" class="snap-start min-h-screen w-full bg-inverse-surface text-white flex items-center justify-center px-6 sm:px-12 py-24">
+    <div class="max-w-6xl mx-auto w-full space-y-12">
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="max-w-3xl space-y-3">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-primary-fixed-dim">02 • Fase 1: Descobrir (Pesquisa no Interior de SP)</span>
+          <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.06]">
+            O maior medo na emergência é o agressor perceber o uso do celular.
+          </h2>
+        </div>
+        <div class="px-4 py-2 rounded-2xl bg-white/10 text-xs font-semibold text-primary-fixed shrink-0 tnum">
+          10 Questões Objetivas • TCLE • 87,5% Alto Letramento Digital
+        </div>
+      </div>
+
+      <!-- 4 Quantitative Findings from Overleaf -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 tnum">
+        <div class="rounded-3xl bg-secondary text-white p-7 flex flex-col justify-between">
+          <span class="text-5xl font-black">62,5%</span>
+          <div class="mt-6 space-y-1">
+            <h3 class="text-lg font-extrabold">Medo de Percepção</h3>
+            <p class="text-xs text-secondary-fixed leading-relaxed">
+              Apontaram como maior barreira o risco de "o agressor perceber que estou usando o celular".
+            </p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl bg-white/10 p-7 flex flex-col justify-between">
+          <span class="text-5xl font-black text-primary-fixed">25%</span>
+          <div class="mt-6 space-y-1">
+            <h3 class="text-lg font-extrabold">Bloqueio Sob Estresse</h3>
+            <p class="text-xs text-white/75 leading-relaxed">
+              Temem "ficar nervosa e esquecer o que fazer" com o aparelho no momento da ameaça.
+            </p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl bg-primary text-white p-7 flex flex-col justify-between">
+          <span class="text-5xl font-black">37,5%</span>
+          <div class="mt-6 space-y-1">
+            <h3 class="text-lg font-extrabold">Ícone Disfarçado</h3>
+            <p class="text-xs text-primary-fixed leading-relaxed">
+              Escolheram um utilitário camuflado na tela inicial como forma mais segura de pedir ajuda.
+            </p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl bg-white/10 p-7 flex flex-col justify-between">
+          <span class="text-5xl font-black text-tertiary-fixed">50%</span>
+          <div class="mt-6 space-y-1">
+            <h3 class="text-lg font-extrabold">Tríade Simultânea</h3>
+            <p class="text-xs text-white/75 leading-relaxed">
+              Exigem localização em tempo real + alerta para contatos de confiança + acionamento direto da polícia.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE 04: REQUISITOS TRADUZIDOS EM SOLUÇÃO (FUNDO CLARO #FAF8FF)      -->
+  <!-- ===================================================================== -->
+  <section id="slide-4" data-slide="4" class="snap-start min-h-screen w-full bg-surface text-on-surface flex items-center justify-center px-6 sm:px-12 py-24">
+    <div class="max-w-6xl mx-auto w-full space-y-12">
+
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-primary">03 • Arquitetura SEMP</span>
+        <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.06]">
+          Como transformamos a pesquisa em interface.
+        </h2>
+      </div>
+
+      <!-- 3 Bold Colored Pillar Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 tnum">
+
+        <!-- Card 1 -->
+        <div class="rounded-3xl bg-inverse-surface text-white p-8 flex flex-col justify-between min-h-[320px]">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+              <span class="material-symbols-outlined text-[28px]">calculate</span>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-white/10 text-xs font-bold text-primary-fixed">25% Cores Neutras</span>
+          </div>
+          <div class="space-y-2 mt-8">
+            <h3 class="text-2xl font-extrabold">1. Camuflagem Utilitária</h3>
+            <p class="text-sm text-white/80 leading-relaxed">
+              Responde ao medo de exposição (62,5%): funciona como calculadora real e só abre o painel com o PIN <strong class="text-white">9482=</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="rounded-3xl bg-secondary text-white p-8 flex flex-col justify-between min-h-[320px]">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center">
+              <span class="material-symbols-outlined icon-filled text-[28px]">emergency</span>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-white/15 text-xs font-bold text-white">62,5% Rapidez &gt; Estética</span>
+          </div>
+          <div class="space-y-2 mt-8">
+            <h3 class="text-2xl font-extrabold">2. Latência Zero (1,5s)</h3>
+            <p class="text-sm text-secondary-fixed leading-relaxed">
+              Responde ao nervosismo (25%): um único botão gigante ou o PIN de coação <strong class="text-white">1900=</strong> envia GPS + Polícia + Família.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="rounded-3xl bg-primary text-white p-8 flex flex-col justify-between min-h-[320px]">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center">
+              <span class="material-symbols-outlined text-[28px]">verified_user</span>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-white/15 text-xs font-bold text-primary-fixed">62,5% Endosso Oficial</span>
+          </div>
+          <div class="space-y-2 mt-8">
+            <h3 class="text-2xl font-extrabold">3. Integração Jurídica</h3>
+            <p class="text-sm text-primary-fixed leading-relaxed">
+              Exibe os autos da medida protetiva de forma clara e conecta diretamente à Patrulha Maria da Penha e ao 190.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE 05: SIMULADOR INTERATIVO AO VIVO (FUNDO ROXO PROFUNDO #2C0051)  -->
+  <!-- ===================================================================== -->
+  <section id="slide-5" data-slide="5" class="snap-start min-h-screen w-full bg-on-primary-fixed text-white flex items-center justify-center px-6 sm:px-12 py-24">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+      <!-- Left: Clean Interactive Module Switcher (7 cols) -->
+      <div class="lg:col-span-7 space-y-8">
+        <div class="space-y-3">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-primary-fixed-dim">04 • Protótipo Interativo (Google Stitch)</span>
+          <h2 id="demo-headline" class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+            1. Camuflagem de Calculadora
+          </h2>
+          <p id="demo-subtext" class="text-base sm:text-xl text-white/80 max-w-xl leading-relaxed">
+            Digite <strong class="text-white tnum">9482=</strong> na calculadora ao lado para acessar o SEMP, ou <strong class="text-secondary-fixed tnum">1900=</strong> para disparar o alerta silencioso mantendo o disfarce.
+          </p>
+        </div>
+
+        <!-- Clean Pill Buttons to Switch Screens Instantly -->
+        <div class="flex flex-wrap gap-3">
+          <button type="button" onclick="switchDemo('calc')" id="pill-calc" class="px-5 py-3 rounded-full text-sm font-bold transition-all bg-primary-container text-white shadow-md">
+            1. Calculadora (Disfarce)
+          </button>
+          <button type="button" onclick="switchDemo('sos')" id="pill-sos" class="px-5 py-3 rounded-full text-sm font-bold transition-all bg-white/10 text-white/80 hover:bg-white/20">
+            2. Botão SOS
+          </button>
+          <button type="button" onclick="switchDemo('medida')" id="pill-medida" class="px-5 py-3 rounded-full text-sm font-bold transition-all bg-white/10 text-white/80 hover:bg-white/20">
+            3. Medida Protetiva
+          </button>
+          <button type="button" onclick="switchDemo('contatos')" id="pill-contatos" class="px-5 py-3 rounded-full text-sm font-bold transition-all bg-white/10 text-white/80 hover:bg-white/20">
+            4. Rede de Apoio
+          </button>
+        </div>
+
+        <!-- Quick One-Click Actions for Presentation -->
+        <div class="pt-4 border-t border-white/15 flex flex-wrap items-center gap-3">
+          <span class="text-xs font-semibold uppercase tracking-wider text-white/60">Simular em 1 clique:</span>
+          <button type="button" onclick="autoTypePin('9482')" class="px-4 py-2 rounded-full bg-white/15 hover:bg-white/25 text-xs font-bold text-primary-fixed transition-colors tnum">
+            Desbloquear Painel (9482=)
+          </button>
+          <button type="button" onclick="autoTypePin('1900')" class="px-4 py-2 rounded-full bg-secondary hover:bg-secondary-container text-xs font-bold text-white transition-colors tnum">
+            Disparar Pânico Coagido (1900=)
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Recreated Google Stitch Mobile Screen (5 cols) -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[350px] h-[640px] rounded-[36px] bg-surface text-on-surface border-[6px] border-white/20 shadow-2xl overflow-hidden flex flex-col select-none">
+
+          <!-- Status Bar -->
+          <div class="h-7 px-5 bg-surface flex items-center justify-between text-[11px] font-bold text-on-surface shrink-0 tnum">
+            <span>09:41</span>
+            <div class="flex items-center gap-1">
+              <span class="text-[10px] text-tertiary font-bold">4G • GPS</span>
+              <span class="material-symbols-outlined text-[14px]">battery_full</span>
+            </div>
+          </div>
+
+          <!-- VIEW 1: CALCULADORA -->
+          <div id="view-calc" class="flex-1 flex flex-col justify-between p-4 bg-surface">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-outline uppercase tracking-wider flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">calculate</span> Calculadora
+              </span>
+              <span id="calc-silent-pill" class="px-2 py-0.5 rounded-full bg-surface-container text-[10px] font-bold text-on-surface-variant">RAD</span>
+            </div>
+
+            <div class="flex flex-col justify-end items-end h-24 px-4 py-3 rounded-2xl bg-surface-container-low my-2 tnum">
+              <div id="calc-sub" class="text-xs text-outline h-4"></div>
+              <div id="calc-out" class="text-3xl font-bold text-on-surface">0</div>
+            </div>
+
+            <div class="grid grid-cols-4 gap-2 my-auto tnum">
+              <button type="button" onclick="cClear()" class="h-13 py-3 rounded-2xl bg-surface-container-high font-bold text-base active:scale-95">C</button>
+              <button type="button" onclick="cPress('+/-')" class="h-13 py-3 rounded-2xl bg-surface-container-high font-bold text-base active:scale-95">+/-</button>
+              <button type="button" onclick="cPress('%')" class="h-13 py-3 rounded-2xl bg-surface-container-high font-bold text-base active:scale-95">%</button>
+              <button type="button" onclick="cOp('÷')" class="h-13 py-3 rounded-2xl bg-primary-container text-white font-bold text-lg active:scale-95">÷</button>
+
+              <button type="button" onclick="cNum('7')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">7</button>
+              <button type="button" onclick="cNum('8')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">8</button>
+              <button type="button" onclick="cNum('9')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">9</button>
+              <button type="button" onclick="cOp('×')" class="h-13 py-3 rounded-2xl bg-primary-container text-white font-bold text-lg active:scale-95">×</button>
+
+              <button type="button" onclick="cNum('4')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">4</button>
+              <button type="button" onclick="cNum('5')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">5</button>
+              <button type="button" onclick="cNum('6')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">6</button>
+              <button type="button" onclick="cOp('-')" class="h-13 py-3 rounded-2xl bg-primary-container text-white font-bold text-lg active:scale-95">−</button>
+
+              <button type="button" onclick="cNum('1')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">1</button>
+              <button type="button" onclick="cNum('2')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">2</button>
+              <button type="button" onclick="cNum('3')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">3</button>
+              <button type="button" onclick="cOp('+')" class="h-13 py-3 rounded-2xl bg-primary-container text-white font-bold text-lg active:scale-95">+</button>
+
+              <button type="button" onclick="cNum('0')" class="col-span-2 h-13 py-3 rounded-2xl bg-white font-bold text-base pl-6 text-left shadow-2xs active:scale-95">0</button>
+              <button type="button" onclick="cNum(',')" class="h-13 py-3 rounded-2xl bg-white font-bold text-base shadow-2xs active:scale-95">,</button>
+              <button type="button" onclick="cEq()" class="h-13 py-3 rounded-2xl bg-primary text-white font-bold text-lg shadow-sm active:scale-95">=</button>
+            </div>
+
+            <div class="mt-2 py-2 px-3 rounded-xl bg-surface-container-low flex items-center justify-between text-[11px] text-outline font-semibold tnum">
+              <span>Memória protegida</span>
+              <span>PIN: 9482= | SOS: 1900=</span>
+            </div>
+          </div>
+
+          <!-- PROTECTED SHELL -->
+          <div id="view-shell" class="hidden flex-1 flex flex-col justify-between bg-surface overflow-hidden">
+            <!-- Header -->
+            <div class="h-14 px-4 bg-white border-b border-outline-variant/30 flex items-center justify-between shrink-0">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-primary text-white flex items-center justify-center font-black text-xs">S</div>
+                <div>
+                  <span class="block text-[9px] font-bold uppercase tracking-wider text-primary leading-none">SEMP</span>
+                  <span id="shell-title" class="text-xs font-extrabold text-on-surface">Painel SOS</span>
+                </div>
+              </div>
+              <button type="button" onclick="switchDemo('calc')" class="h-8 px-3 rounded-full bg-inverse-surface text-white text-[11px] font-bold flex items-center gap-1 active:scale-95">
+                <span class="material-symbols-outlined text-[15px]">calculate</span>
+                <span>Disfarçar</span>
+              </button>
+            </div>
+
+            <!-- Subview: SOS -->
+            <div id="sub-sos" class="flex-1 flex flex-col items-center justify-between p-4">
+              <div class="w-full py-2 px-3 rounded-full bg-white border border-outline-variant/40 flex items-center justify-between text-xs font-semibold">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+                  Proteção Ativa
+                </span>
+                <span class="text-[10px] font-bold text-tertiary bg-tertiary-fixed/50 px-2 py-0.5 rounded-full">Conectado</span>
+              </div>
+
+              <!-- SOS Button -->
+              <div class="flex flex-col items-center my-auto">
+                <div class="relative w-48 h-48 flex items-center justify-center">
+                  <div class="absolute inset-0 rounded-full bg-secondary/15 animate-sos-ring"></div>
+                  <svg class="absolute inset-2 w-44 h-44 transform -rotate-90 pointer-events-none" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="44" fill="none" stroke="#ffdad6" stroke-width="4"></circle>
+                    <circle id="sos-svg-ring" cx="50" cy="50" r="44" fill="none" stroke="#bb0112" stroke-width="5" stroke-dasharray="276" stroke-dashoffset="276" stroke-linecap="round"></circle>
+                  </svg>
+                  <button
+                    type="button"
+                    onmousedown="holdStart()"
+                    onmouseup="holdEnd()"
+                    onmouseleave="holdEnd()"
+                    ontouchstart="holdStart(); return false;"
+                    ontouchend="holdEnd()"
+                    class="relative z-10 w-32 h-32 rounded-full bg-secondary text-white shadow-xl flex flex-col items-center justify-center active:scale-95 transition-transform"
+                  >
+                    <span class="material-symbols-outlined icon-filled text-[36px]">emergency</span>
+                    <span id="sos-btn-txt" class="text-xl font-black tracking-tight">SOS</span>
+                  </button>
+                </div>
+                <p id="sos-status-txt" class="text-xs font-extrabold text-on-surface mt-2">Segure por 1,5s para acionar</p>
+                <p class="text-[11px] text-on-surface-variant text-center max-w-[220px] mt-0.5">
+                  Tríade simultânea: GPS ao vivo + Família + Polícia 190.
+                </p>
+              </div>
+
+              <div class="w-full p-3 rounded-2xl bg-white border border-outline-variant/30 flex items-center justify-around text-xs font-bold">
+                <span class="text-primary">Mãe</span>
+                <span class="text-outline-variant">•</span>
+                <span class="text-on-surface">Irmã</span>
+                <span class="text-outline-variant">•</span>
+                <span class="text-secondary">Polícia 190</span>
+              </div>
+            </div>
+
+            <!-- Subview: Medida -->
+            <div id="sub-medida" class="hidden flex-1 flex flex-col gap-3 p-4 overflow-y-auto">
+              <div class="p-3.5 rounded-2xl bg-white border border-outline-variant/40 space-y-2">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-tertiary-container text-white text-[10px] font-bold uppercase">
+                  Medida Vigente • TJSP
+                </span>
+                <div>
+                  <span class="text-[10px] font-bold uppercase text-outline block">Número do Processo</span>
+                  <span class="text-xs font-extrabold text-on-surface tnum">0823412-44.2024.8.26.0100</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant">2ª Vara de Violência Doméstica • Válida até 15/12/2025</p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-white border border-outline-variant/40 flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">radar</span>
+                <div>
+                  <p class="text-xs font-bold text-on-surface">Distância Mínima: 300 metros</p>
+                  <p class="text-[11px] text-on-surface-variant">Proibição total de aproximação e contato.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-secondary-fixed/40 border border-secondary/20">
+                <span class="text-[10px] font-bold uppercase text-secondary block">Agressor Intimado</span>
+                <p class="text-xs font-extrabold text-on-surface mt-0.5">Carlos Eduardo Silveira</p>
+                <p class="text-[11px] text-on-surface-variant">Veículo: HB20 Prata • Placa ABC-1234</p>
+              </div>
+            </div>
+
+            <!-- Subview: Contatos -->
+            <div id="sub-contatos" class="hidden flex-1 flex flex-col gap-2.5 p-4 overflow-y-auto">
+              <div class="p-3.5 rounded-2xl bg-white border border-outline-variant/40 flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-extrabold text-on-surface">Maria Silva (Mãe)</p>
+                  <p class="text-[11px] text-on-surface-variant tnum">(11) 99876-5432 • SMS & WhatsApp</p>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold">Ativo</span>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-white border border-outline-variant/40 flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-extrabold text-on-surface">Ana Clara (Irmã)</p>
+                  <p class="text-[11px] text-on-surface-variant tnum">(11) 98123-4567 • SMS & WhatsApp</p>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold">Ativo</span>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-white border border-outline-variant/40 flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-extrabold text-on-surface">Patrulha Maria da Penha</p>
+                  <p class="text-[11px] text-on-surface-variant">Central 190 • Despacho Direto</p>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-secondary text-[10px] font-bold">24h</span>
+              </div>
+            </div>
+
+            <!-- Bottom Nav -->
+            <div class="h-14 bg-white border-t border-outline-variant/30 grid grid-cols-3 items-center shrink-0 text-[10px] font-bold">
+              <button type="button" onclick="switchDemo('sos')" id="nav-sos" class="flex flex-col items-center text-primary">
+                <span class="material-symbols-outlined text-[20px]">fmd_bad</span>
+                <span>SOS</span>
+              </button>
+              <button type="button" onclick="switchDemo('medida')" id="nav-medida" class="flex flex-col items-center text-outline">
+                <span class="material-symbols-outlined text-[20px]">verified_user</span>
+                <span>Medida</span>
+              </button>
+              <button type="button" onclick="switchDemo('contatos')" id="nav-contatos" class="flex flex-col items-center text-outline">
+                <span class="material-symbols-outlined text-[20px]">contacts</span>
+                <span>Contatos</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE 06: PAINEL TÁTICO DA PATRULHA (FUNDO ESMERALDA #004D33)         -->
+  <!-- ===================================================================== -->
+  <section id="slide-6" data-slide="6" class="snap-start min-h-screen w-full bg-tertiary text-white flex items-center justify-center px-6 sm:px-12 py-24">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+      <div class="lg:col-span-6 space-y-5">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-tertiary-fixed">05 • Integração Policial</span>
+        <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.06]">
+          A viatura recebe o alerta sem a vítima precisar falar.
+        </h2>
+        <p class="text-lg text-white/80 leading-relaxed">
+          Para atender aos <strong class="text-white tnum">62,5%</strong> que exigem vínculo institucional com órgãos de segurança e justiça, o SEMP entrega um Painel Tático com GPS, escuta ao vivo e dados do agressor.
+        </p>
+      </div>
+
+      <!-- Minimal Visual Tactical Card -->
+      <div class="lg:col-span-6">
+        <div class="rounded-3xl bg-white text-on-surface p-6 sm:p-8 shadow-2xl space-y-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-secondary">Código 3 • Prioridade Máxima</span>
+              <h3 class="text-xl font-black text-on-surface">Viatura 24M → Av. Paulista, 1200</h3>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-secondary text-white text-xs font-extrabold tnum">ETA 3 min</span>
+          </div>
+
+          <!-- Clean Radar Illustration -->
+          <div class="h-44 rounded-2xl bg-surface-container-high relative overflow-hidden flex items-end p-4">
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="280" cy="80" r="55" fill="#bb0112" fill-opacity="0.18" />
+              <circle cx="280" cy="80" r="55" fill="none" stroke="#bb0112" stroke-width="2" stroke-dasharray="4 4" />
+              <path d="M 70 140 Q 160 130 200 100 T 280 80" fill="none" stroke="#6200a9" stroke-width="4" stroke-linecap="round" />
+              <circle cx="70" cy="140" r="9" fill="#6200a9" />
+              <circle cx="280" cy="80" r="10" fill="#bb0112" />
+            </svg>
+            <span class="relative z-10 px-3 py-1 rounded-full bg-on-surface text-white text-xs font-bold">
+              Raio de 300m Violado • GPS ±3m
+            </span>
+          </div>
+
+          <!-- Audio + Suspect Row -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-2xl bg-surface-container-low flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-bold uppercase text-secondary block">Escuta Ambiente</span>
+                <span class="text-sm font-extrabold text-on-surface">Gravando Ao Vivo</span>
+              </div>
+              <div class="flex items-center gap-1 h-6">
+                <span class="w-1.5 h-5 bg-secondary rounded-full wave-1"></span>
+                <span class="w-1.5 h-6 bg-primary rounded-full wave-2"></span>
+                <span class="w-1.5 h-4 bg-secondary rounded-full wave-3"></span>
+                <span class="w-1.5 h-6 bg-primary rounded-full wave-1"></span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-surface-container-low">
+              <span class="text-[10px] font-bold uppercase text-outline block">Veículo do Agressor</span>
+              <span class="text-sm font-extrabold text-on-surface">HB20 Prata • ABC-1234</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SLIDE 07: VALIDAÇÃO DE IMPACTO & FECHAMENTO (FUNDO ROXO #6200A9)      -->
+  <!-- ===================================================================== -->
+  <section id="slide-7" data-slide="7" class="snap-start min-h-screen w-full bg-primary text-white flex items-center justify-center px-6 sm:px-12 py-24">
+    <div class="max-w-6xl mx-auto w-full space-y-12">
+
+      <div class="max-w-3xl space-y-3">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-primary-fixed">06 • Resultados & Validação</span>
+        <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.06]">
+          Aprovação direta de quem precisa de proteção.
+        </h2>
+      </div>
+
+      <!-- 3 Clean Impact Numbers from Overleaf Conclusion -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 tnum">
+        <div class="rounded-3xl bg-white text-on-surface p-8 space-y-3 shadow-lg">
+          <span class="text-6xl font-black text-primary">75%</span>
+          <h3 class="text-xl font-extrabold">Sensação Máxima de Segurança</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Avaliaram com nota máxima (5 de 5) o quanto se sentiriam mais seguras tendo o SEMP instalado no aparelho.
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-white text-on-surface p-8 space-y-3 shadow-lg">
+          <span class="text-6xl font-black text-tertiary">87,5%</span>
+          <h3 class="text-xl font-extrabold">Recomendação entre Mulheres</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            Afirmaram que, com certeza, indicariam a ferramenta para amigas ou familiares como medida de prevenção primária.
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-white/10 border border-white/15 text-white p-8 space-y-3">
+          <span class="text-6xl font-black text-primary-fixed">62,5%</span>
+          <h3 class="text-xl font-extrabold">Confiança Institucional</h3>
+          <p class="text-sm text-primary-fixed leading-relaxed">
+            Destacaram o endosso oficial de órgãos de segurança e justiça como requisito decisivo para adoção.
+          </p>
+        </div>
+      </div>
+
+      <!-- Minimal Academic Footer Bar -->
+      <div class="pt-8 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-primary-fixed">
+        <div class="flex items-center gap-3">
+          <span class="font-black text-white">SEMP</span>
+          <span>•</span>
+          <span>Segurança Efetiva para Mulheres com Medidas Protetivas</span>
+        </div>
+        <span class="font-semibold text-white">IFSP • Ciência da Computação • PICO 4º Semestre</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- MINIMAL INTERACTION SCRIPT (SLIDES + CALCULATOR + SOS)                -->
+  <!-- ===================================================================== -->
+  <script>
+    // --- Slide Deck Keyboard & Button Navigation ---
+    const totalSlides = 7;
+    let activeSlide = 1;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activeSlide = Number(entry.target.getAttribute('data-slide'));
+          document.getElementById('slide-counter').textContent = `0${activeSlide} / 0${totalSlides}`;
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('section[data-slide]').forEach(sec => observer.observe(sec));
+
+    function changeSlide(dir) {
+      const next = Math.min(totalSlides, Math.max(1, activeSlide + dir));
+      const target = document.getElementById(`slide-${next}`);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) {
+        e.preventDefault();
+        changeSlide(1);
+      } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) {
+        e.preventDefault();
+        changeSlide(-1);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullScreen();
+      }
+    });
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    // --- Interactive Demo Switcher (Slide 5) with 4s Auto-Cycle ---
+    const DEMO_MODES = ['calc', 'sos', 'medida', 'contatos'];
+    let currentDemoIndex = 0;
+    let demoAutoTimer = null;
+
+    const DEMO_COPY = {
+      calc: {
+        title: '1. Camuflagem de Calculadora',
+        sub: 'Digite 9482= na calculadora ao lado para acessar o SEMP, ou 1900= para disparar o alerta silencioso mantendo o disfarce.'
+      },
+      sos: {
+        title: '2. Acionamento SOS em 1,5s',
+        sub: 'Pressione e segure o botão vermelho por 1,5 segundo. Envia localização em tempo real para a polícia e contatos de confiança.'
+      },
+      medida: {
+        title: '3. Medida Judicial Explicada',
+        sub: 'Resolve o desconhecimento prático (87,5% da amostra) exibindo claramente o processo, as regras de 300m e o veículo do agressor.'
+      },
+      contatos: {
+        title: '4. Rede de Apoio Simultânea',
+        sub: 'Atende à tríade essencial apontada por 50% das respondentes: aviso imediato à família junto com o despacho policial.'
+      }
+    };
+
+    function startDemoAutoCycle() {
+      clearInterval(demoAutoTimer);
+      demoAutoTimer = setInterval(() => {
+        currentDemoIndex = (currentDemoIndex + 1) % DEMO_MODES.length;
+        switchDemo(DEMO_MODES[currentDemoIndex], false);
+      }, 4000);
+    }
+
+    function switchDemo(mode, resetTimer = true) {
+      const idx = DEMO_MODES.indexOf(mode);
+      if (idx !== -1) currentDemoIndex = idx;
+      if (resetTimer) startDemoAutoCycle();
+
+      const viewCalc = document.getElementById('view-calc');
+      const viewShell = document.getElementById('view-shell');
+
+      DEMO_MODES.forEach(id => {
+        const pill = document.getElementById('pill-' + id);
+        if (pill) {
+          pill.className = id === mode
+            ? 'px-5 py-3 rounded-full text-sm font-bold transition-all bg-primary-container text-white shadow-md scale-105'
+            : 'px-5 py-3 rounded-full text-sm font-bold transition-all bg-white/10 text-white/80 hover:bg-white/20';
+        }
+      });
+
+      document.getElementById('demo-headline').textContent = DEMO_COPY[mode].title;
+      document.getElementById('demo-subtext').textContent = DEMO_COPY[mode].sub;
+
+      if (mode === 'calc') {
+        viewCalc.classList.remove('hidden');
+        viewShell.classList.add('hidden');
+      } else {
+        viewCalc.classList.add('hidden');
+        viewShell.classList.remove('hidden');
+        ['sos', 'medida', 'contatos'].forEach(sub => {
+          const el = document.getElementById('sub-' + sub);
+          const nav = document.getElementById('nav-' + sub);
+          if (el) el.classList.toggle('hidden', sub !== mode);
+          if (nav) nav.className = sub === mode ? 'flex flex-col items-center text-primary' : 'flex flex-col items-center text-outline';
+        });
+        const titles = { sos: 'Painel SOS', medida: 'Medida Protetiva', contatos: 'Rede de Apoio' };
+        document.getElementById('shell-title').textContent = titles[mode] || 'SEMP';
+      }
+    }
+
+    startDemoAutoCycle();
+
+    // --- Calculator Logic ---
+    let cVal = '0';
+    let cPrev = null;
+    let cOper = null;
+    let cReset = false;
+
+    function cRender() {
+      document.getElementById('calc-out').textContent = cVal;
+    }
+
+    function cNum(n) {
+      if (n === ',') {
+        if (!cVal.includes(',')) cVal += ',';
+        cRender();
+        return;
+      }
+      if (cVal === '0' || cReset) {
+        cVal = n;
+        cReset = false;
+      } else if (cVal.length < 9) {
+        cVal += n;
+      }
+      cRender();
+    }
+
+    function cClear() {
+      cVal = '0';
+      cPrev = null;
+      cOper = null;
+      document.getElementById('calc-sub').textContent = '';
+      cRender();
+    }
+
+    function cPress(type) {
+      if (type === '+/-' && cVal !== '0') {
+        cVal = cVal.startsWith('-') ? cVal.slice(1) : '-' + cVal;
+      } else if (type === '%') {
+        cVal = String(parseFloat(cVal.replace(',', '.')) / 100).replace('.', ',');
+      }
+      cRender();
+    }
+
+    function cOp(op) {
+      cPrev = parseFloat(cVal.replace(',', '.'));
+      cOper = op;
+      document.getElementById('calc-sub').textContent = `${cPrev} ${op}`;
+      cReset = true;
+    }
+
+    function cEq() {
+      const clean = cVal.replace(',', '');
+      if (clean === '9482') {
+        cClear();
+        switchDemo('sos');
+        return;
+      }
+      if (clean === '1900') {
+        cVal = '190,00';
+        document.getElementById('calc-sub').textContent = 'ALERTA SILENCIOSO ENVIADO';
+        const pill = document.getElementById('calc-silent-pill');
+        pill.textContent = 'SOS ATIVO';
+        pill.className = 'px-2 py-0.5 rounded-full bg-secondary text-white text-[10px] font-bold animate-pulse';
+        cRender();
+        return;
+      }
+      if (cOper && cPrev !== null) {
+        const cur = parseFloat(cVal.replace(',', '.'));
+        let res = cur;
+        if (cOper === '+') res = cPrev + cur;
+        if (cOper === '-') res = cPrev - cur;
+        if (cOper === '×') res = cPrev * cur;
+        if (cOper === '÷') res = cur !== 0 ? cPrev / cur : 0;
+        document.getElementById('calc-sub').textContent = `${cPrev} ${cOper} ${cur} =`;
+        cVal = String(Number(res.toFixed(4))).replace('.', ',');
+        cPrev = null;
+        cOper = null;
+        cReset = true;
+        cRender();
+      }
+    }
+
+    function autoTypePin(pin) {
+      switchDemo('calc');
+      cVal = pin;
+      cRender();
+      setTimeout(() => cEq(), 400);
+    }
+
+    // --- Hold SOS Button ---
+    let holdTimer = null;
+    let holdPct = 0;
+
+    function holdStart() {
+      holdPct = 0;
+      const ring = document.getElementById('sos-svg-ring');
+      const txt = document.getElementById('sos-status-txt');
+      txt.textContent = 'Mantenha pressionado...';
+      clearInterval(holdTimer);
+      holdTimer = setInterval(() => {
+        holdPct += 10;
+        ring.style.strokeDashoffset = Math.max(0, 276 - (holdPct / 100) * 276);
+        if (holdPct >= 100) {
+          clearInterval(holdTimer);
+          txt.textContent = 'SOCORRO POLICIAL DISPARADO!';
+          txt.className = 'text-xs font-black text-secondary mt-2';
+          document.getElementById('sos-btn-txt').textContent = 'ATIVO';
+        }
+      }, 130);
+    }
+
+    function holdEnd() {
+      clearInterval(holdTimer);
+      if (holdPct < 100) {
+        document.getElementById('sos-svg-ring').style.strokeDashoffset = 276;
+        const txt = document.getElementById('sos-status-txt');
+        txt.textContent = 'Segure por 1,5s para acionar';
+        txt.className = 'text-xs font-extrabold text-on-surface mt-2';
+      }
+    }
+  </script>
+</body>
+</html>

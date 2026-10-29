@@ -1,0 +1,38 @@
+interface SempLogoProps {
+  className?: string
+  size?: number
+}
+
+export function SempLogo({ className = 'h-8 w-auto', size = 32 }: SempLogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      width={size}
+      height={size}
+      className={className}
+    >
+      <defs>
+        <linearGradient id="sempGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#7e22ce" />
+          <stop offset="100%" stopColor="#9333ea" />
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" rx="24" fill="url(#sempGrad)" />
+      {/* Shield with protective heart & signal icon */}
+      <path
+        d="M50 20 L75 30 V50 C75 66 64 78 50 84 C36 78 25 66 25 50 V30 Z"
+        fill="#ffffff"
+        fillOpacity="0.2"
+      />
+      <path
+        d="M50 26 L70 34 V49 C70 62 61 72 50 77 C39 72 30 62 30 49 V34 Z"
+        fill="#ffffff"
+      />
+      <path
+        d="M50 42 C45 35 37 38 37 45 C37 52 50 63 50 63 C50 63 63 52 63 45 C63 38 55 35 50 42 Z"
+        fill="#7e22ce"
+      />
+    </svg>
+  )
+}

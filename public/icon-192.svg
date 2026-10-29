@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <rect width="192" height="192" rx="42" fill="#6200a9" />
+  <rect x="28" y="24" width="136" height="144" rx="20" fill="#faf8ff" />
+  <rect x="42" y="38" width="108" height="34" rx="8" fill="#e2e7ff" />
+  <text x="140" y="62" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#131b2e" text-anchor="end">0</text>
+  <circle cx="56" cy="94" r="11" fill="#eaedff" />
+  <circle cx="84" cy="94" r="11" fill="#eaedff" />
+  <circle cx="112" cy="94" r="11" fill="#eaedff" />
+  <circle cx="138" cy="94" r="11" fill="#7e22ce" />
+  <circle cx="56" cy="122" r="11" fill="#eaedff" />
+  <circle cx="84" cy="122" r="11" fill="#eaedff" />
+  <circle cx="112" cy="122" r="11" fill="#eaedff" />
+  <circle cx="138" cy="122" r="11" fill="#7e22ce" />
+  <rect x="45" y="139" width="50" height="20" rx="10" fill="#eaedff" />
+  <circle cx="112" cy="149" r="10" fill="#eaedff" />
+  <circle cx="138" cy="149" r="10" fill="#6200a9" />
+</svg>
